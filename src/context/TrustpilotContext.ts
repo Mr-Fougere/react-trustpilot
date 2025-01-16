@@ -1,10 +1,11 @@
-import { createContext, useContext } from "react";
+import { createContext, RefObject, useContext } from "react";
 
 interface TrustPilotContextProps {
   businessUnitId: string;
-  readonly widgetUrl: string;
+  widgetUrl: string;
   isPending: boolean;
   isError: boolean;
+  loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 
 export const TrustPilotContext = createContext<

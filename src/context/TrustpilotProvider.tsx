@@ -1,4 +1,4 @@
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren, RefObject, useEffect, useState } from "react";
 import { TrustPilotContext } from "./TrustpilotContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
 
@@ -14,6 +14,12 @@ export const TrustPilotProvider: React.FC<TrustPilotProviderProps> = ({
 }) => {
   const [isPending, setPending] = useState(true);
   const [isError, setError] = useState(false);
+
+  const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
+    if (window.Trustpilot && ref.current) {
+      window.Trustpilot.loadFromElement(ref.current, true);
+    }
+  };
 
   useEffect(() => {
     const script = Object.assign(document.createElement("script"), {
@@ -39,7 +45,13 @@ export const TrustPilotProvider: React.FC<TrustPilotProviderProps> = ({
 
   return (
     <TrustPilotContext.Provider
-      value={{ businessUnitId, widgetUrl, isPending, isError }}>
+      value={{
+        businessUnitId,
+        widgetUrl,
+        isPending,
+        isError,
+        loadTrustpilotWidget,
+      }}>
       {children}
     </TrustPilotContext.Provider>
   );
