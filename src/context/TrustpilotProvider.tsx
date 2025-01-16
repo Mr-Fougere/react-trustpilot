@@ -20,10 +20,12 @@ export const TrustPilotProvider: React.FC<TrustPilotProviderProps> = ({
       src: TRUSTPILOT_WIDGET_SCRIPT_URL,
       async: true,
       onload: () => {
-        setPending(false), setError(false);
+        setPending(false);
+        setError(false);
       },
       onerror: () => {
-        setPending(false), setError(true);
+        setPending(false);
+        setError(true);
       },
     });
 

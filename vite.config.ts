@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "MyReactLib",
-      fileName: (format) => `my-react-lib.${format}.js`,
+      name: "react-trustpilot",
+      fileName: (format) => `react-trustpilot.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom"],

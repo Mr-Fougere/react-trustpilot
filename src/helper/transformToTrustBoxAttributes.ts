@@ -1,4 +1,4 @@
-const transformToTrustBoxAttributes = <
+export const transformToTrustBoxAttributes = <
   T extends Partial<TrustBoxAttributesProps>
 >(
   obj: T

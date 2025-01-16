@@ -1,4 +1,4 @@
-interface TrustBoxAttributesProps {
+export interface TrustBoxAttributesProps {
   styleHeight: string;
   styleWidth: string;
   businessunitId: string;
@@ -10,12 +10,14 @@ interface TrustBoxAttributesProps {
   noReview: "hide" | "show";
 }
 
-type TrustBoxAttributes = Record<Partial<TrustBoxtAttributeKey>, string>;
+export type TrustBoxAttributes = Record<Partial<TrustBoxtAttributeKey>, string>;
 
-type KebabKeys<S extends string> = S extends `${infer T}${infer U}`
+export type KebabKeys<S extends string> = S extends `${infer T}${infer U}`
   ? T extends Capitalize<T>
     ? `-${Lowercase<T>}${KebabKeys<U>}`
     : `${Lowercase<T>}${KebabKeys<U>}`
   : S;
 
-type TrustBoxtAttributeKey = `data-${KebabKeys<keyof TrustBoxAttributesProps>}`;
+export type TrustBoxtAttributeKey = `data-${KebabKeys<
+  keyof TrustBoxAttributesProps
+>}`;
