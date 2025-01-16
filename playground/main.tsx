@@ -1,5 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MyComponent } from "../dist";
+import { TrustBox, TrustPilotProvider } from "../dist/react-trustpilot.es";
 
-ReactDOM.render(<MyComponent />, document.getElementById("root"));
+ReactDOM.render(
+  <TrustPilotProvider businessUnitId={""} widgetUrl={""}>
+    <TrustBox businessUnitId={""}>Loqding</TrustBox>
+  </TrustPilotProvider>,
+  document.getElementById("root")
+);

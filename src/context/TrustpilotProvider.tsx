@@ -1,5 +1,6 @@
 import { PropsWithChildren, useEffect, useState } from "react";
 import { TrustPilotContext } from "./TrustpilotContext";
+import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
   businessUnitId: string;

@@ -1,8 +1,19 @@
 {
   "name": "react-trustpilot",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "author": "Mr-Fougere",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "trustpilot",
+    "widget",
+    "trustpilot-react"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

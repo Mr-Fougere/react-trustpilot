@@ -3,10 +3,10 @@ import { useTrustPilotContext } from "../context/TrustpilotContext";
 import { TrustBoxAttributesProps } from "../interface/trust-box.interface";
 import { transformToTrustBoxAttributes } from "../helper/transformToTrustBoxAttributes";
 
-export function TrustBox({
+export const TrustBox = ({
   children,
   ...props
-}: TrustBoxAttributesProps & PropsWithChildren) {
+}: PropsWithChildren & TrustBoxAttributesProps) => {
   const { widgetUrl, businessUnitId: businessunitId } = useTrustPilotContext();
 
   const data = transformToTrustBoxAttributes({ ...props, businessunitId });
@@ -18,4 +18,4 @@ export function TrustBox({
       </a>
     </div>
   );
-}
+};

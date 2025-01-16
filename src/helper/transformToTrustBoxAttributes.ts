@@ -1,3 +1,9 @@
+import {
+  TrustBoxAttributes,
+  TrustBoxAttributesProps,
+  TrustBoxtAttributeKey,
+} from "../interface/trust-box.interface";
+
 export const transformToTrustBoxAttributes = <
   T extends Partial<TrustBoxAttributesProps>
 >(
