@@ -22,6 +22,27 @@ export const TrustPilotProvider: React.FC<TrustPilotProviderProps> = ({
   };
 
   useEffect(() => {
+    const existingScript = Array.from(document.scripts).find(
+      (script) => script.src === TRUSTPILOT_WIDGET_SCRIPT_URL
+    );
+
+    if (existingScript) {
+      if (window.Trustpilot) {
+        setPending(false);
+        setError(false);
+      } else {
+        existingScript.onload = () => {
+          setPending(false);
+          setError(false);
+        };
+        existingScript.onerror = () => {
+          setPending(false);
+          setError(true);
+        };
+      }
+      return;
+    }
+
     const script = Object.assign(document.createElement("script"), {
       type: "text/javascript",
       src: TRUSTPILOT_WIDGET_SCRIPT_URL,
@@ -39,7 +60,9 @@ export const TrustPilotProvider: React.FC<TrustPilotProviderProps> = ({
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      if (!existingScript) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 

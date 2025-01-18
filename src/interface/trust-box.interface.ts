@@ -6,7 +6,7 @@ export interface TrustBoxWidgetExtrasAttributesProps {
   scrollToList: boolean;
   stars: number[];
   noReview: "hide" | "show";
-  fontFamily: string;
+  fontFamily: CSSProperties["fontFamily"];
   locale: string;
   theme: "dark" | "ligth";
   sku: string;
@@ -28,15 +28,14 @@ export type TrustBoxWidgetProductMiniAttributesProps = Partial<
     | "theme"
   >
 > &
-  TrustBoxWidgetMandatoryAttributesProps;
+  Pick<TrustBoxWidgetExtrasAttributesProps, "sku">;
 
 export type TrustBoxWidgetHorizontalAttributesProps = Partial<
   Pick<
     TrustBoxWidgetExtrasAttributesProps,
     "styleHeight" | "styleWidth" | "fontFamily" | "locale" | "theme"
   >
-> &
-  TrustBoxWidgetMandatoryAttributesProps;
+>;
 
 export type TrustBoxWidgetAttributesProps =
   Partial<TrustBoxWidgetExtrasAttributesProps> &
@@ -64,3 +63,9 @@ export type TrustBoxWidgettMandatoryAttributeKey = `data-${KebabKeys<
 export type TrustBoxWidgetExtraAttributeKey = `data-${KebabKeys<
   keyof TrustBoxWidgetExtrasAttributesProps
 >}`;
+
+export enum TrustBoxWidgetType {
+  Horizontal = "Horizontal",
+  ProductMini = "ProductMini",
+  ProductMiniMultiSource = "ProductMiniMultiSource",
+}
