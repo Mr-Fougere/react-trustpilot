@@ -1,28 +1,27 @@
 import { PropsWithChildren, useEffect, useMemo, useRef } from "react";
 import { useTrustPilotContext } from "../context/TrustpilotContext";
-import { TrustBoxWidgetAttributesProps } from "../interface/trust-box.interface";
+import { TrustBoxWidgetAttributesPropsT, ScriptInjectionStatus } from "../interface/trust-box.interface";
 import { transformToTrustBoxAttributes } from "../helper/transformToTrustBoxAttributes";
 
 export const TrustBoxWidgetBase = ({
   children,
   ...props
-}: PropsWithChildren & TrustBoxWidgetAttributesProps) => {
+}: PropsWithChildren & TrustBoxWidgetAttributesPropsT) => {
   const widgetRef = useRef(null);
   const {
     widgetUrl,
     businessUnitId: businessunitId,
-    isPending,
+    status,
     loadTrustpilotWidget,
-    isError,
   } = useTrustPilotContext();
 
   useEffect(() => {
-    if (!isError && !isPending) {
+    if (status == ScriptInjectionStatus.Ready) {
       loadTrustpilotWidget(widgetRef);
     }
-  }, [widgetRef, isPending]);
+  }, [widgetRef, status]);
 
-  const isDisplayed = businessunitId && widgetUrl && !isError;
+  const isDisplayed = businessunitId && widgetUrl && status === ScriptInjectionStatus.Ready;
 
   if (isDisplayed) return null;
 

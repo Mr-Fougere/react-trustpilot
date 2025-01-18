@@ -1,78 +1,44 @@
-import { PropsWithChildren, RefObject, useEffect, useState } from "react";
+import { FC, PropsWithChildren, RefObject } from "react";
 import { TrustPilotContext } from "./TrustpilotContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
+import { Trustpilot } from "../../types/global";
+import { useScript } from "@uidotdev/usehooks";
+import { TrustpilotWidgetError } from "../errors/TrustpilotWidgetError";
+import { ScriptInjectionStatus } from "../interface/trust-box.interface";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
   businessUnitId: string;
   widgetUrl: string;
 }
 
-export const TrustPilotProvider: React.FC<TrustPilotProviderProps> = ({
+export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
   businessUnitId,
   widgetUrl,
   children,
 }) => {
-  const [isPending, setPending] = useState(true);
-  const [isError, setError] = useState(false);
+
+  const status = useScript(TRUSTPILOT_WIDGET_SCRIPT_URL, { removeOnUnmount: true }) as ScriptInjectionStatus
 
   const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
-    if (window.Trustpilot && ref.current) {
-      window.Trustpilot.loadFromElement(ref.current, true);
+    switch (status) {
+      case ScriptInjectionStatus.Loading:
+        throw new TrustpilotWidgetError("TrustpilotWidget not loaded cause Trustpilot script not yet load")
+      case ScriptInjectionStatus.Error:
+        throw new TrustpilotWidgetError("TrustpilotWidget not loaded cause Trustpilot script failed to load")
+      default:
+        if (Trustpilot && ref.current) {
+          Trustpilot.loadFromElement(ref.current, true);
+        }
+        break;
     }
-  };
-
-  useEffect(() => {
-    const existingScript = Array.from(document.scripts).find(
-      (script) => script.src === TRUSTPILOT_WIDGET_SCRIPT_URL
-    );
-
-    if (existingScript) {
-      if (window.Trustpilot) {
-        setPending(false);
-        setError(false);
-      } else {
-        existingScript.onload = () => {
-          setPending(false);
-          setError(false);
-        };
-        existingScript.onerror = () => {
-          setPending(false);
-          setError(true);
-        };
-      }
-      return;
-    }
-
-    const script = Object.assign(document.createElement("script"), {
-      type: "text/javascript",
-      src: TRUSTPILOT_WIDGET_SCRIPT_URL,
-      async: true,
-      onload: () => {
-        setPending(false);
-        setError(false);
-      },
-      onerror: () => {
-        setPending(false);
-        setError(true);
-      },
-    });
-
-    document.body.appendChild(script);
-
-    return () => {
-      if (!existingScript) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+  }
 
   return (
     <TrustPilotContext.Provider
       value={{
         businessUnitId,
         widgetUrl,
-        isPending,
-        isError,
+        status,
         loadTrustpilotWidget,
       }}>
       {children}

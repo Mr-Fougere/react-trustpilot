@@ -4,3 +4,5 @@ declare interface Trustpilot {
 interface Window {
   Trustpilot?: Trustpilot;
 }
+
+export const Trustpilot: Trustpilot = window.Trustpilot

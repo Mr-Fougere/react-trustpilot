@@ -1,10 +1,10 @@
 import { createContext, RefObject, useContext } from "react";
+import { ScriptInjectionStatus } from "../interface/trust-box.interface";
 
 interface TrustPilotContextProps {
   businessUnitId: string;
   widgetUrl: string;
-  isPending: boolean;
-  isError: boolean;
+  status: ScriptInjectionStatus,
   loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 
