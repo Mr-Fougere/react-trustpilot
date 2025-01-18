@@ -1,16 +1,55 @@
-export interface TrustBoxAttributesProps {
-  styleHeight: string;
-  styleWidth: string;
-  businessunitId: string;
-  templateId: string;
-  theme: "dark" | "ligth";
-  locale: string;
+import { CSSProperties } from "react";
+
+export interface TrustBoxWidgetExtrasAttributesProps {
+  styleHeight: CSSProperties["height"];
+  styleWidth: CSSProperties["width"];
   scrollToList: boolean;
   stars: number[];
   noReview: "hide" | "show";
+  fontFamily: string;
+  locale: string;
+  theme: "dark" | "ligth";
+  sku: string;
 }
 
-export type TrustBoxAttributes = Record<Partial<TrustBoxtAttributeKey>, string>;
+export interface TrustBoxWidgetMandatoryAttributesProps {
+  templateId: string;
+}
+
+export type TrustBoxWidgetProductMiniAttributesProps = Partial<
+  Pick<
+    TrustBoxWidgetExtrasAttributesProps,
+    | "noReview"
+    | "scrollToList"
+    | "styleHeight"
+    | "styleWidth"
+    | "fontFamily"
+    | "locale"
+    | "theme"
+  >
+> &
+  TrustBoxWidgetMandatoryAttributesProps;
+
+export type TrustBoxWidgetHorizontalAttributesProps = Partial<
+  Pick<
+    TrustBoxWidgetExtrasAttributesProps,
+    "styleHeight" | "styleWidth" | "fontFamily" | "locale" | "theme"
+  >
+> &
+  TrustBoxWidgetMandatoryAttributesProps;
+
+export type TrustBoxWidgetAttributesProps =
+  Partial<TrustBoxWidgetExtrasAttributesProps> &
+    TrustBoxWidgetMandatoryAttributesProps;
+
+export type TrustBoxWidgetAttributes = Record<
+  TrustBoxWidgetAttributeKey,
+  string
+>;
+
+export type TrustBoxWidgetAttributeKey =
+  | TrustBoxWidgettMandatoryAttributeKey
+  | TrustBoxWidgetExtraAttributeKey;
 
 export type KebabKeys<S extends string> = S extends `${infer T}${infer U}`
   ? T extends Capitalize<T>
@@ -18,6 +57,10 @@ export type KebabKeys<S extends string> = S extends `${infer T}${infer U}`
     : `${Lowercase<T>}${KebabKeys<U>}`
   : S;
 
-export type TrustBoxtAttributeKey = `data-${KebabKeys<
-  keyof TrustBoxAttributesProps
+export type TrustBoxWidgettMandatoryAttributeKey = `data-${KebabKeys<
+  keyof TrustBoxWidgetMandatoryAttributesProps
+>}`;
+
+export type TrustBoxWidgetExtraAttributeKey = `data-${KebabKeys<
+  keyof TrustBoxWidgetExtrasAttributesProps
 >}`;

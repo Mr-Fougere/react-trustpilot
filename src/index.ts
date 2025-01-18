@@ -1,2 +1,2 @@
-export * from "./components/TrustBox";
+export * from "./components/TrustBoxWidget";
 export * from "./context/TrustpilotProvider";

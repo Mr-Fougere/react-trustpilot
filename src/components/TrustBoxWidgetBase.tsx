@@ -1,35 +1,39 @@
-import { PropsWithChildren, useEffect, useRef } from "react";
+import { PropsWithChildren, useEffect, useMemo, useRef } from "react";
 import { useTrustPilotContext } from "../context/TrustpilotContext";
-import { TrustBoxAttributesProps } from "../interface/trust-box.interface";
+import { TrustBoxWidgetAttributesProps } from "../interface/trust-box.interface";
 import { transformToTrustBoxAttributes } from "../helper/transformToTrustBoxAttributes";
 
-export const TrustBox = ({
+export const TrustBoxWidgetBase = ({
   children,
   ...props
-}: PropsWithChildren & TrustBoxAttributesProps) => {
+}: PropsWithChildren & TrustBoxWidgetAttributesProps) => {
   const widgetRef = useRef(null);
   const {
     widgetUrl,
     businessUnitId: businessunitId,
+    isPending,
     loadTrustpilotWidget,
     isError,
-    isPending,
   } = useTrustPilotContext();
 
   useEffect(() => {
-    if (!isPending && !isError) {
+    if (!isError && !isPending) {
       loadTrustpilotWidget(widgetRef);
     }
-  }, [isPending]);
+  }, [widgetRef, isPending]);
 
   const isDisplayed = businessunitId && widgetUrl && !isError;
 
   if (isDisplayed) return null;
 
-  const data = transformToTrustBoxAttributes({
-    ...props,
-    businessunitId,
-  });
+  const data = useMemo(
+    () =>
+      transformToTrustBoxAttributes({
+        ...props,
+        businessunitId,
+      }),
+    [props, businessunitId]
+  );
 
   return (
     <div className="trustpilot-widget" ref={widgetRef} {...data}>
