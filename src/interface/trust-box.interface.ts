@@ -19,16 +19,16 @@ interface TrustBoxWidgetAttributesProps {
   buttonColor: CSSProperties["color"];
   buttonTextColor: CSSProperties["color"];
   starColor: CSSProperties["color"];
-  schemaType: "Product",
-  linkColor: CSSProperties['color'],
-  name: string,
+  schemaType: "Product";
+  linkColor: CSSProperties["color"];
+  name: string;
   templateId: string;
   businessunitId: string;
-  thirdPartyReviews: boolean
+  thirdPartyReviews: boolean;
 }
 
 export type TrustBoxWidgetAttributesPropsT =
-  Partial<TrustBoxWidgetAttributesProps>
+  Partial<TrustBoxWidgetAttributesProps>;
 
 export type TrustBoxWidgetAttributes = Record<
   TrustBoxWidgetAttributeKey,
@@ -37,8 +37,8 @@ export type TrustBoxWidgetAttributes = Record<
 
 export type KebabKeys<S extends string> = S extends `${infer T}${infer U}`
   ? T extends Capitalize<T>
-  ? `-${Lowercase<T>}${KebabKeys<U>}`
-  : `${Lowercase<T>}${KebabKeys<U>}`
+    ? `-${Lowercase<T>}${KebabKeys<U>}`
+    : `${Lowercase<T>}${KebabKeys<U>}`
   : S;
 
 export type TrustBoxWidgetAttributeKey = `data-${KebabKeys<
@@ -79,59 +79,54 @@ export type TrustBoxWidgetBasicAttributesProps = Partial<
   Pick<
     TrustBoxWidgetAttributesPropsT,
     "styleHeight" | "styleWidth" | "fontFamily" | "locale" | "theme"
-  >> & PropsWithChildren
-
-export type TrustBoxWidgetBasicProductAttributesProps = TrustBoxWidgetBasicAttributesProps &
-  Pick<TrustBoxWidgetAttributesProps, "sku">
-
-export type TrustBoxWidgetMicroButtonAttributesProps =
-  Omit<
-    TrustBoxWidgetBasicAttributesProps,
-    "theme"
   >
+> &
+  PropsWithChildren;
+
+export type TrustBoxWidgetBasicProductAttributesProps =
+  TrustBoxWidgetBasicAttributesProps &
+    Pick<TrustBoxWidgetAttributesProps, "sku">;
+
+export type TrustBoxWidgetMicroButtonAttributesProps = Omit<
+  TrustBoxWidgetBasicAttributesProps,
+  "theme"
+>;
 
 export type TrustBoxWidgetMicroReviewCountAttributesProps = Partial<
   TrustBoxWidgetBasicAttributesProps &
-  Pick<
-    TrustBoxWidgetAttributesPropsT,
-    "minReviewCount" | "styleAlignment"
-  >
+    Pick<TrustBoxWidgetAttributesPropsT, "minReviewCount" | "styleAlignment">
 >;
 
 export type TrustBoxWidgetReviewCollectorAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-  Partial<
-    Pick<
-      TrustBoxWidgetAttributesPropsT,
-      "borderColor"
-    >
-  >;
+    Partial<Pick<TrustBoxWidgetAttributesPropsT, "borderColor">>;
 
 export type TrustBoxWidgetBasicReviewAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-  Partial<
-    Pick<
-      TrustBoxWidgetAttributesPropsT,
-      "stars" | "reviewLanguage" | "tags"
-    >
-  >;
+    Partial<
+      Pick<TrustBoxWidgetAttributesPropsT, "stars" | "reviewLanguage" | "tags">
+    >;
 
-export type TrustBoxWidgeReviewListFileredAttributesProps = Omit<TrustBoxWidgetBasicReviewAttributesProps, "stars" | "tags">
-
-export type TrustBoxWidgeProductReviewsWithStarAttributesProps = TrustBoxWidgetBasicProductAttributesProps & Partial<
-  Pick<
-    TrustBoxWidgetAttributesPropsT,
-    "starColor"
-  >
+export type TrustBoxWidgeReviewListFileredAttributesProps = Omit<
+  TrustBoxWidgetBasicReviewAttributesProps,
+  "stars" | "tags"
 >;
 
-export type TrustBoxWidgeProductReviewsMultiSourceAttributesProps = TrustBoxWidgeProductReviewsWithStarAttributesProps &
-  Partial<Pick<TrustBoxWidgetAttributesPropsT, "linkColor">>
+export type TrustBoxWidgeProductReviewsWithStarAttributesProps =
+  TrustBoxWidgetBasicProductAttributesProps &
+    Partial<Pick<TrustBoxWidgetAttributesPropsT, "starColor">>;
 
+export type TrustBoxWidgeProductReviewsMultiSourceAttributesProps =
+  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+    Partial<Pick<TrustBoxWidgetAttributesPropsT, "linkColor">>;
 
-export type TrustBoxWidgeProductReviewsSEOAttributesProps = TrustBoxWidgeProductReviewsWithStarAttributesProps &
-  Pick<TrustBoxWidgetAttributesPropsT, "name">
+export type TrustBoxWidgeProductReviewsSEOAttributesProps =
+  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+    Pick<TrustBoxWidgetAttributesPropsT, "name">;
 
-
-export enum ScriptInjectionStatus { Unknown = "unknown", Loading = "loading", Ready = "ready", Error = "error" }
-
+export enum ScriptInjectionStatus {
+  Unknown = "unknown",
+  Loading = "loading",
+  Ready = "ready",
+  Error = "error",
+}

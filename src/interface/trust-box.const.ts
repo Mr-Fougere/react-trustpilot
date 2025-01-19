@@ -3,7 +3,8 @@ import { TrustBoxWidgetType } from "./trust-box.interface";
 export const TRUSTPILOT_WIDGET_SCRIPT_URL =
   "https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
 
-export const TRUSTPILOT_WIDGET_PRODUCT_QUESTION_SCRIPT_URL = "https://widget.trustpilot.com/product-questions/loader.js"
+export const TRUSTPILOT_WIDGET_PRODUCT_QUESTION_SCRIPT_URL =
+  "https://widget.trustpilot.com/product-questions/loader.js";
 
 export const TRUSTPILOT_WIDGET_TEMPLATE_IDS = {
   [TrustBoxWidgetType.Horizontal]: "5406e65db0d04a09e042d5fc",

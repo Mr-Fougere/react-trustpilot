@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.1",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "author": "Mr-Fougere",
@@ -15,10 +14,8 @@
     "trustpilot-react"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "tsc -b",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
@@ -30,14 +27,11 @@
     "@types/node": "^22.10.6",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
-    "@vitejs/plugin-react": "^4.3.4",
-    "@vitejs/plugin-react-swc": "^3.5.0",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "globals": "^15.14.0",
     "typescript": "~5.6.2",
-    "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "typescript-eslint": "^8.18.2"
   }
 }
