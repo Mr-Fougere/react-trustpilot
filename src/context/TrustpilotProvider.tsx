@@ -1,10 +1,9 @@
 import { FC, PropsWithChildren, RefObject } from "react";
 import { TrustPilotContext } from "./TrustpilotContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
-import { Trustpilot } from "../types/global";
-import { useScript } from "@uidotdev/usehooks";
 import { TrustpilotWidgetError } from "../errors/TrustpilotWidgetError";
 import { ScriptInjectionStatus } from "../interface/trust-box.interface";
+import { useScript } from "@uidotdev/usehooks";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
   businessUnitId: string;
@@ -31,8 +30,8 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
           "TrustpilotWidget not loaded cause Trustpilot script failed to load"
         );
       default:
-        if (Trustpilot && ref.current) {
-          Trustpilot.loadFromElement(ref.current, true);
+        if (window.Trustpilot && ref.current) {
+          window.Trustpilot.loadFromElement(ref.current, true);
         }
         break;
     }

@@ -27,8 +27,6 @@ export const TrustBoxWidgetBase = ({
   const isDisplayed =
     businessunitId && widgetUrl && status === ScriptInjectionStatus.Ready;
 
-  if (isDisplayed) return null;
-
   const data = useMemo(
     () =>
       transformToTrustBoxAttributes({
@@ -37,6 +35,8 @@ export const TrustBoxWidgetBase = ({
       }),
     [props, businessunitId]
   );
+
+  if (isDisplayed) return null;
 
   return (
     <div className="trustpilot-widget" ref={widgetRef} {...data}>
