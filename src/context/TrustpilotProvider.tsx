@@ -19,6 +19,8 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
+  const locale = navigator.languages[0];
+
   const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
     switch (status) {
       case ScriptInjectionStatus.Loading:
@@ -44,6 +46,7 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
         widgetUrl,
         status,
         loadTrustpilotWidget,
+        locale,
       }}>
       {children}
     </TrustPilotContext.Provider>

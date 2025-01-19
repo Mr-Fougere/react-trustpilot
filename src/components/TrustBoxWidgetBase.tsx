@@ -15,6 +15,7 @@ export const TrustBoxWidgetBase = ({
     widgetUrl,
     businessUnitId: businessunitId,
     status,
+    locale,
     loadTrustpilotWidget,
   } = useTrustPilotContext();
 
@@ -23,7 +24,6 @@ export const TrustBoxWidgetBase = ({
       loadTrustpilotWidget(widgetRef);
     }
   }, [widgetRef, status]);
-
   const isDisplayed =
     businessunitId && widgetUrl && status === ScriptInjectionStatus.Ready;
 
@@ -31,12 +31,13 @@ export const TrustBoxWidgetBase = ({
     () =>
       transformToTrustBoxAttributes({
         ...props,
+        locale,
         businessunitId,
       }),
     [props, businessunitId]
   );
 
-  if (isDisplayed) return null;
+  if (!isDisplayed) return null;
 
   return (
     <div className="trustpilot-widget" ref={widgetRef} {...data}>

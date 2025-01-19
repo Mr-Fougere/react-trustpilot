@@ -4,7 +4,8 @@ import { ScriptInjectionStatus } from "../interface/trust-box.interface";
 interface TrustPilotContextProps {
   businessUnitId: string;
   widgetUrl: string;
-  status: ScriptInjectionStatus,
+  status: ScriptInjectionStatus;
+  locale: string;
   loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 
