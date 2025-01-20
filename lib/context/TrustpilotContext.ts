@@ -1,5 +1,6 @@
 import { createContext, RefObject, useContext } from "react";
 import { ScriptInjectionStatus } from "../interface/trust-box.interface";
+import { TrustpilotContextError } from "../errors/TrustpilotContextError";
 
 interface TrustPilotContextProps {
   businessUnitId: string;
@@ -16,7 +17,9 @@ export const TrustPilotContext = createContext<
 export const useTrustPilotContext = (): TrustPilotContextProps => {
   const context = useContext(TrustPilotContext);
   if (!context) {
-    throw new Error("useTrustPilot must be used within a TrustPilotProvider");
+    throw new TrustpilotContextError(
+      "useTrustPilot must be used within a TrustPilotProvider"
+    );
   }
   return context;
 };

@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidgetAttributesPropsT } from "../interface/trust-box.interface";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
-import { TrustPilotProvider } from "../context/TrustpilotProvider";
+import { TrustPilotProvider } from "react-trustpilot";
 
 export default {
   title: "TrustPilot/Essentials",

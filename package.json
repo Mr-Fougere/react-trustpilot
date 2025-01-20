@@ -1,9 +1,27 @@
 {
   "name": "react-trustpilot",
-  "private": true,
-  "version": "0.0.1",
-  "author": "Mr-Fougere",
+  "private": false,
+  "version": "0.0.7",
+  "author": "mr-fougere",
   "license": "MIT",
+  "repository": {
+    "url": "git+https://github.com/Mr-Fougere/react-trustpilot.git"
+  },
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "type": "module",
   "keywords": [
     "react",
     "trustpilot",
@@ -11,20 +29,16 @@
     "trustpilot-react"
   ],
   "scripts": {
-    "rollup": "rollup -c --bundleConfigAsCjs",
+    "build": "tsc && vite build",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "files": [
-    "./dist"
-  ],
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
-    "@uidotdev/usehooks": "^2.4.1",
-    "dotenv": "^16.4.7"
+    "@uidotdev/usehooks": "^2.4.1"
   },
   "peerDependencies ": {
     "react": "^19.0.0",
@@ -33,10 +47,6 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/js": "^9.17.0",
-    "@rollup/plugin-commonjs": "^28.0.2",
-    "@rollup/plugin-node-resolve": "^16.0.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rollup/plugin-typescript": "^12.1.2",
     "@storybook/addon-essentials": "^8.5.0",
     "@storybook/addon-interactions": "^8.5.0",
     "@storybook/addon-onboarding": "^8.5.0",
@@ -46,21 +56,20 @@
     "@storybook/test": "^8.5.0",
     "@types/node": "^22.10.6",
     "@types/react": "^18.3.18",
-    "@types/rollup-plugin-peer-deps-external": "^2.2.5",
     "@typescript-eslint/eslint-plugin": "^8.20.0",
     "@typescript-eslint/parser": "^8.20.0",
+    "dotenv": "^16.4.7",
     "eslint": "^9.18.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
     "eslint-plugin-storybook": "^0.11.2",
     "globals": "^15.14.0",
     "jiti": "^2.4.2",
-    "rollup": "^4.31.0",
-    "rollup-plugin-dts": "^6.1.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^8.5.0",
     "typescript": "~5.6.2",
-    "typescript-eslint": "^8.18.2"
+    "typescript-eslint": "^8.18.2",
+    "vite": "^6.0.10",
+    "vite-plugin-dts": "^4.5.0"
   },
   "eslintConfig": {
     "extends": [
