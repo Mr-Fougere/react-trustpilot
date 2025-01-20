@@ -1,50 +1,92 @@
-# React + TypeScript + Vite
+# TrustPilot React Widget Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This library provides a set of customizable Trustpilot widgets for embedding on your website or application. It allows you to integrate Trustpilot's review display system, product ratings, and review collection functionality.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Provider Component**: To initialize Trustpilot with your business details and load the Trustpilot widget.
 
-## Expanding the ESLint configuration
+- **Various Widgets**: Different types of Trustpilot widgets for displaying reviews, product ratings, review collection, and more.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Seamless Integration**: Simple to use with React components and supports custom configurations.
 
-- Configure the top-level `parserOptions` property like this:
+## How To Use
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 1. Install the library
+
+```bash
+npm install react-trustpilot`
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2. Initialize the provider
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+The `TrustPilotProvider` component is a context provider that makes Trustpilot configuration available to all its child components. It manages the loading state of the Trustpilot script, injects it, and provides the necessary data (business unit ID, widget URL, locale, and a function to load the widget).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+#### Props
+
+- `businessUnitId`: The Trustpilot business unit ID for your company.
+- `widgetUrl`: The URL of the Trustpilot widget.
+
+#### Example
+
+```tsx
+import { StrictMode } from "react";
+
+import { createRoot } from "react-dom/client";
+
+import "./index.css";
+
+import App from "./App.tsx";
+
+import { TrustPilotProvider } from "react-trustpilot";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+       {" "}
+    <TrustPilotProvider
+      businessUnitId="YOUR_BUSINESSUNIT_ID"
+      widgetUrl="YOUR_WIDGET_URL">
+            <App />   {" "}
+    </TrustPilotProvider>
+     {" "}
+  </StrictMode>
+);
+```
+
+### 2. Call TrustBowWidget
+
+The `TrustBoxWidget` is an object that contains various Trustpilot widgets, including essential widgets, testimonial widgets, review collector widgets, and product review widgets. Each widget can be rendered by passing the appropriate props to the component.
+
+#### Props
+
+- Most of the widget dont need props but for product reviews, `sku is mandatory
+
+Example Widgets
+
+```ts
+import { TrustBoxWidget } from "react-trustpilot";
+
+function App() {
+  return (
+    <>
+            <TrustBoxWidget.Horizontal />   {" "}
+    </>
+  );
+}
+
+export default App;
+```
+
+```ts
+import { TrustBoxWidget } from "react-trustpilot";
+
+function App() {
+  return (
+    <>
+            <TrustBoxWidget.ProductMini sku="YOUR_SKU" />   {" "}
+    </>
+  );
+}
+
+export default App;
 ```
