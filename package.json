@@ -1,5 +1,5 @@
 {
-  "name": "@Mr-Fougere/react-trustpilot",
+  "name": "@mr-fougere/react-trustpilot",
   "private": false,
   "version": "0.0.7",
   "author": "mr-fougere",
@@ -35,7 +35,7 @@
     "build-storybook": "storybook build"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@Mr-Fougere"
+    "registry": "https://npm.pkg.github.com/@mr-fougere"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1"
@@ -65,6 +65,7 @@
     "eslint-plugin-storybook": "^0.11.2",
     "globals": "^15.14.0",
     "jiti": "^2.4.2",
+    "rollup": "^4.31.0",
     "storybook": "^8.5.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
