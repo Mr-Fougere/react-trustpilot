@@ -12,6 +12,8 @@
       "isolatedModules": true,
       "moduleDetection": "force",
       "noEmit": false,
+      "declaration": true,
+      "declarationDir": "./dist/types",
   
       /* Linting */
       "strict": true,
