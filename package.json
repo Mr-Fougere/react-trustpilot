@@ -1,5 +1,5 @@
 {
-  "name": "react-trustpilot",
+  "name": "@Mr-Fougere/react-trustpilot",
   "private": false,
   "version": "0.0.7",
   "author": "mr-fougere",
@@ -35,7 +35,7 @@
     "build-storybook": "storybook build"
   },
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/@Mr-Fougere"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1"
