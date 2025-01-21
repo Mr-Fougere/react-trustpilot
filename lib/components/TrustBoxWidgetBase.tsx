@@ -20,10 +20,11 @@ export const TrustBoxWidgetBase = ({
   } = useTrustPilotContext();
 
   useEffect(() => {
-    if (status == ScriptInjectionStatus.Ready) {
+    if (status === ScriptInjectionStatus.Ready) {
       loadTrustpilotWidget(widgetRef);
     }
-  }, [widgetRef, status]);
+  }, [widgetRef, status, loadTrustpilotWidget]); // Added 'loadTrustpilotWidget' to the dependency array.
+
   const isDisplayed =
     businessunitId && widgetUrl && status === ScriptInjectionStatus.Ready;
 
@@ -34,7 +35,7 @@ export const TrustBoxWidgetBase = ({
         locale,
         businessunitId,
       }),
-    [props, businessunitId]
+    [props, businessunitId, locale] // Added 'locale' to the dependency array.
   );
 
   if (!isDisplayed) return null;
