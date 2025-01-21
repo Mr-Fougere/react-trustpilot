@@ -19,7 +19,7 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
-  const locale = navigator.languages[0];
+  const locale = navigator?.languages?.[0] || "en-US";
 
   const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
     switch (status) {

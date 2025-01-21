@@ -29,6 +29,7 @@
     "trustpilot-react"
   ],
   "scripts": {
+    "prepare": "pnpm run build",
     "build": "tsc && vite build",
     "lint": "eslint .",
     "storybook": "storybook dev -p 6006",
