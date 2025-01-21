@@ -15,7 +15,7 @@ This library provides a set of customizable Trustpilot widgets for embedding on 
 ### 1. Install the library
 
 ```bash
-npm install react-trustpilot`
+npm install @mr-fougere/react-trustpilot`
 ```
 
 ### 2. Initialize the provider
