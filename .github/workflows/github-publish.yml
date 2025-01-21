@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
-          scope: "@Mr-Fougere"
+          scope: "@mr-fougere"
       - run: npm install -g pnpm
       - run: pnpm install
       - run: pnpm run lint
