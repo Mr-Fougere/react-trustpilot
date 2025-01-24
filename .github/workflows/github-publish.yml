@@ -1,8 +1,12 @@
-name: Publish Package on Github
+name: publish on github
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - publish
+
+env:
+  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 jobs:
   publish-gpr:
@@ -14,10 +18,8 @@ jobs:
           node-version: "20.x"
           registry-url: https://npm.pkg.github.com/
           scope: "@mr-fougere"
-      - run: npm install -g pnpm
-      - run: pnpm install
-      - run: pnpm run lint
+       - run: npm i -g pnpm
+      - run: pnpm i
       - run: pnpm run build
       - run: pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+     

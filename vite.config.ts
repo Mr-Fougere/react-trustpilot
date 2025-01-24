@@ -23,5 +23,5 @@ export default defineConfig({
     },
     emptyOutDir: true,
   },
-  plugins: [dts({ rollupTypes: true })],
+  plugins: [dts()],
 });
