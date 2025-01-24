@@ -37,7 +37,7 @@
     "build-storybook": "storybook build"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@mr-fougere"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1"
