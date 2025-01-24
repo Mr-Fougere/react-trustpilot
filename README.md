@@ -42,13 +42,11 @@ import { TrustPilotProvider } from "react-trustpilot";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-       {" "}
     <TrustPilotProvider
       businessUnitId="YOUR_BUSINESSUNIT_ID"
       widgetUrl="YOUR_WIDGET_URL">
-            <App />   {" "}
+      <App />
     </TrustPilotProvider>
-     {" "}
   </StrictMode>
 );
 ```
@@ -69,7 +67,7 @@ import { TrustBoxWidget } from "react-trustpilot";
 function App() {
   return (
     <>
-            <TrustBoxWidget.Horizontal />   {" "}
+      <TrustBoxWidget.Horizontal />
     </>
   );
 }
@@ -83,7 +81,7 @@ import { TrustBoxWidget } from "react-trustpilot";
 function App() {
   return (
     <>
-            <TrustBoxWidget.ProductMini sku="YOUR_SKU" />   {" "}
+      <TrustBoxWidget.ProductMini sku="YOUR_SKU" />
     </>
   );
 }
