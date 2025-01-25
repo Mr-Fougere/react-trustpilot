@@ -2,24 +2,29 @@ import { FC, PropsWithChildren, RefObject } from "react";
 import { TrustPilotContext } from "./TrustpilotContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
 import { TrustpilotWidgetError } from "../errors/TrustpilotWidgetError";
-import { ScriptInjectionStatus } from "../interface/trust-box.interface";
+import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { useScript } from "@uidotdev/usehooks";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
   businessUnitId: string;
-  widgetUrl: string;
+  webSiteUrl: string;
+  defaultLocale?: string;
 }
 
 export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
-  businessUnitId,
-  widgetUrl,
+  businessUnitId = "PREVIEW_ID",
   children,
+  defaultLocale = "en-US",
+  webSiteUrl,
 }) => {
   const status = useScript(
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
-  const locale = navigator?.languages?.[0] || "en-US";
+  const locale = navigator?.languages?.[0] || defaultLocale;
+  const localeDomaine = locale.split("-")[0];
+
+  const widgetUrl = `https://${localeDomaine}.trustpilot.com/review/${webSiteUrl}`;
 
   const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
     switch (status) {

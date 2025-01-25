@@ -1,5 +1,5 @@
 import { createContext, RefObject, useContext } from "react";
-import { ScriptInjectionStatus } from "../interface/trust-box.interface";
+import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { TrustpilotContextError } from "../errors/TrustpilotContextError";
 
 interface TrustPilotContextProps {

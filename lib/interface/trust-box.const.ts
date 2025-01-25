@@ -1,4 +1,4 @@
-import { TrustBoxWidgetType } from "./trust-box.interface";
+import { TrustBoxWidgetType } from "./trust-box.enums";
 
 export const TRUSTPILOT_WIDGET_SCRIPT_URL =
   "https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";

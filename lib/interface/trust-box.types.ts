@@ -45,36 +45,6 @@ export type TrustBoxWidgetAttributeKey = `data-${KebabKeys<
   keyof TrustBoxWidgetAttributesProps
 >}`;
 
-export enum TrustBoxWidgetType {
-  Horizontal = "Horizontal",
-  MicroButton = "MicroButton",
-  MicroCombo = "MicroCombo",
-  MicroReviewCount = "MicroReviewCount",
-  MicroStar = "MicroStar",
-  MicroTrustScore = "MicroTrustScore",
-  Mini = "Mini",
-  Starter = "Starter",
-  ReviewCollector = "ReviewCollector",
-  Carousel = "Carousel",
-  DropDown = "DropDown",
-  Grid = "Grid",
-  List = "List",
-  ListFiltered = "ListFiltered",
-  MiniCarousel = "MiniCarousel",
-  PopUp = "PopUp",
-  Quote = "Quote",
-  Slider = "Slider",
-  ProductMini = "ProductMini",
-  ProductMiniMultiSource = "ProductMiniMultiSource",
-  ProductQA = "ProductQA",
-  ProductReviews = "ProductReviews",
-  ProductReviewsCarousel = "ProductReviewsCarousel",
-  ProductReviewsGallery = "ProductReviewsGallery",
-  ProductReviewsMultiSource = "ProductReviewsMultiSource",
-  ProductReviewsMultiSourceSEO = "ProductReviewsMultiSourceSEO",
-  ProductReviewsSEO = "ProductReviewsSEO",
-}
-
 export type TrustBoxWidgetBasicAttributesProps = Partial<
   Pick<
     TrustBoxWidgetAttributesPropsT,
@@ -123,10 +93,3 @@ export type TrustBoxWidgeProductReviewsMultiSourceAttributesProps =
 export type TrustBoxWidgeProductReviewsSEOAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "name">;
-
-export enum ScriptInjectionStatus {
-  Unknown = "unknown",
-  Loading = "loading",
-  Ready = "ready",
-  Error = "error",
-}

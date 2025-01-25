@@ -10,9 +10,9 @@ import {
   TrustBoxWidgetMicroButtonAttributesProps,
   TrustBoxWidgetMicroReviewCountAttributesProps,
   TrustBoxWidgetReviewCollectorAttributesProps,
-  TrustBoxWidgetType,
-} from "../interface/trust-box.interface";
+} from "../interface/trust-box.types";
 import { TRUSTPILOT_WIDGET_TEMPLATE_IDS } from "../interface/trust-box.const";
+import { TrustBoxWidgetType } from "../interface/trust-box.enums";
 
 const callTrustBoxWidgetBase = (
   props: PropsWithChildren & TrustBoxWidgetAttributesPropsT,
@@ -224,7 +224,9 @@ export const productReviewTrustBoxWidgets = {
   ProductReviewSEO: (props: TrustBoxWidgeProductReviewsSEOAttributesProps) =>
     callTrustBoxWidgetBase(props, TrustBoxWidgetType.ProductReviewsSEO),
 };
-
+/**
+ * @params {JSXElement} children - Be used until the widget is loaded ( by default nothing )
+ */
 export const TrustBoxWidget = {
   ...essentialTrustBoxWidgets,
   ...collectReviewTrustBoxWidgets,

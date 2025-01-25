@@ -27,7 +27,11 @@
     "react",
     "trustpilot",
     "widget",
-    "trustpilot-react"
+    "react-trustpilot",
+    "reviews",
+    "testimonials",
+    "products",
+    "trustbox"
   ],
   "scripts": {
     "prepare": "pnpm run build",

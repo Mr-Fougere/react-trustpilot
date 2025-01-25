@@ -1,10 +1,9 @@
 import { PropsWithChildren, useEffect, useMemo, useRef } from "react";
 import { useTrustPilotContext } from "../context/TrustpilotContext";
-import {
-  TrustBoxWidgetAttributesPropsT,
-  ScriptInjectionStatus,
-} from "../interface/trust-box.interface";
+import { TrustBoxWidgetAttributesPropsT } from "../interface/trust-box.types";
+
 import { transformToTrustBoxAttributes } from "../helper/transformToTrustBoxAttributes";
+import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 
 export const TrustBoxWidgetBase = ({
   children,
@@ -26,7 +25,10 @@ export const TrustBoxWidgetBase = ({
   }, [widgetRef, status, loadTrustpilotWidget]);
 
   const isDisplayed =
-    businessunitId && widgetUrl && status === ScriptInjectionStatus.Ready;
+    businessunitId &&
+    widgetUrl &&
+    (status === ScriptInjectionStatus.Ready ||
+      status === ScriptInjectionStatus.Unknown);
 
   const data = useMemo(
     () =>
