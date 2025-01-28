@@ -42,59 +42,103 @@ export const TRUSTPILOT_WIDGET_TEMPLATE_RESOLUTION_LIMITS: Record<
   TrustBoxWidgetType,
   TrustBoxWidgetResolutionLimits
 > = {
-  [TrustBoxWidgetType.Horizontal]: { min: { height: "50px", width: "100px" } },
+  [TrustBoxWidgetType.Horizontal]: {
+    min: { height: "50px", width: "140px" },
+    max: { height: "24px", width: "100%" },
+  },
   [TrustBoxWidgetType.MicroButton]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "24px", width: "64px" },
+    max: { height: "48px", width: "100%" },
   },
-  [TrustBoxWidgetType.MicroCombo]: { min: { height: "100px", width: "100px" } },
+  [TrustBoxWidgetType.MicroCombo]: {
+    min: { height: "100px", width: "120px" },
+    max: { height: "24px", width: "100%" },
+  },
   [TrustBoxWidgetType.MicroReviewCount]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "50px", width: "140px" },
+    max: { height: "24px", width: "100%" },
   },
-  [TrustBoxWidgetType.MicroStar]: { min: { height: "100px", width: "100px" } },
+  [TrustBoxWidgetType.MicroStar]: {
+    min: { height: "64px", width: "100px" },
+    max: { height: "24px", width: "100%" },
+  },
   [TrustBoxWidgetType.MicroTrustScore]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "52px", width: "120px" },
+    max: { height: "24px", width: "100%" },
   },
-  [TrustBoxWidgetType.Mini]: { min: { height: "100px", width: "100px" } },
-  [TrustBoxWidgetType.Starter]: { min: { height: "100px", width: "100px" } },
-  [TrustBoxWidgetType.ReviewCollector]: {
-    min: { height: "100px", width: "100px" },
+  [TrustBoxWidgetType.Mini]: {
+    min: { height: "90px", width: "120px" },
+    max: { height: "130px", width: "100%" },
   },
-  [TrustBoxWidgetType.Carousel]: { min: { height: "20px", width: "100px" } },
-  [TrustBoxWidgetType.DropDown]: { min: { height: "100px", width: "100px" } },
-  [TrustBoxWidgetType.Grid]: { min: { height: "100px", width: "100px" } },
-  [TrustBoxWidgetType.List]: { min: { height: "100px", width: "100px" } },
+  [TrustBoxWidgetType.Starter]: {},
+  [TrustBoxWidgetType.ReviewCollector]: {},
+  [TrustBoxWidgetType.Carousel]: {
+    min: { height: "140px", width: "520px" },
+    max: { height: "140px", width: "100%" },
+  },
+  [TrustBoxWidgetType.DropDown]: {
+    min: { height: "30px", width: "255px" },
+    max: { height: "30px", width: "760px" },
+  },
+  [TrustBoxWidgetType.Grid]: {
+    min: { height: "400px", width: "220px" },
+    max: { height: "500px", width: "100%" },
+  },
+  [TrustBoxWidgetType.List]: {
+    min: { height: "400px", width: "148px" },
+    max: { height: "400px", width: "750px" },
+  },
   [TrustBoxWidgetType.ListFiltered]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "400px", width: "230px" },
+    max: { height: "400px", width: "750px" },
   },
   [TrustBoxWidgetType.MiniCarousel]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "350px", width: "180px" },
+    max: { height: "320px", width: "750px" },
   },
-  [TrustBoxWidgetType.PopUp]: { min: { height: "100px", width: "100px" } },
-  [TrustBoxWidgetType.Quote]: { min: { height: "100px", width: "100px" } },
-  [TrustBoxWidgetType.Slider]: { min: { height: "100px", width: "100px" } },
+  [TrustBoxWidgetType.PopUp]: {
+    min: { height: "50px", width: "148px" },
+    max: { height: "25px", width: "100%" },
+  },
+  [TrustBoxWidgetType.Quote]: {
+    min: { height: "300px", width: "200px" },
+    max: { height: "300px", width: "520px" },
+  },
+  [TrustBoxWidgetType.Slider]: {
+    min: { height: "240px", width: "290px" },
+    max: { height: "240px", width: "1200px" },
+  },
   [TrustBoxWidgetType.ProductMini]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "24px", width: "190px" },
+    max: { height: "24px", width: "100%" },
   },
   [TrustBoxWidgetType.ProductMiniMultiSource]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "24px", width: "190px" },
+    max: { height: "24px", width: "100%" },
   },
-  [TrustBoxWidgetType.ProductQA]: { min: { height: "100px", width: "100px" } },
+  [TrustBoxWidgetType.ProductQA]: {},
   [TrustBoxWidgetType.ProductReviews]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "400px", width: "220px" },
+    max: { height: "400px", width: "860px" },
   },
   [TrustBoxWidgetType.ProductReviewsCarousel]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "140px", width: "520px" },
+    max: { height: "140px", width: "860px" },
   },
   [TrustBoxWidgetType.ProductReviewsGallery]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "350px", width: "520px" },
+    max: { height: "700px", width: "100%" },
   },
   [TrustBoxWidgetType.ProductReviewsMultiSource]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "400px", width: "160px" },
+    max: { height: "950px", width: "750px" },
   },
   [TrustBoxWidgetType.ProductReviewsMultiSourceSEO]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "400px", width: "160px" },
+    max: { height: "950px", width: "750px" },
   },
   [TrustBoxWidgetType.ProductReviewsSEO]: {
-    min: { height: "100px", width: "100px" },
+    min: { height: "400px", width: "220px" },
+    max: { height: "400px", width: "860px" },
   },
 };

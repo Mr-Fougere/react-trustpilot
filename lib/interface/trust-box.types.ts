@@ -29,7 +29,6 @@ interface TrustBoxWidgetAttributesProps {
 
 type dimensionT = `${number}%` | `${number}px`;
 
-// TODO: auto sizing
 type limitSizeProps = dimensionT | "min" | "max" | "auto";
 
 export type TrustBoxWidgetResolutionT = {
@@ -44,7 +43,7 @@ export type TrustBoxWidgetResolutionProps = Partial<{
 
 export type TrustBoxWidgetResolutionLimits = {
   max?: TrustBoxWidgetResolutionT;
-  min: TrustBoxWidgetResolutionT;
+  min?: TrustBoxWidgetResolutionT;
 };
 
 export type TrustBoxWidgetAttributesPropsT =

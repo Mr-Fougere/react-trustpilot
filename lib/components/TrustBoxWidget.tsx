@@ -12,11 +12,9 @@ import {
   TrustBoxWidgetResolutionProps,
   TrustBoxWidgetReviewCollectorAttributesProps,
 } from "../interface/trust-box.types";
-import {
-  TRUSTPILOT_WIDGET_TEMPLATE_IDS,
-  TRUSTPILOT_WIDGET_TEMPLATE_RESOLUTION_LIMITS,
-} from "../interface/trust-box.const";
+import { TRUSTPILOT_WIDGET_TEMPLATE_IDS } from "../interface/trust-box.const";
 import { TrustBoxWidgetType } from "../interface/trust-box.enums";
+import { widgetResolutionMatcher } from "../helper/widgetResolutionMatcher";
 
 type CallTrustBoxWidgetBaseProps = PropsWithChildren &
   TrustBoxWidgetAttributesPropsT &
@@ -28,40 +26,10 @@ const callTrustBoxWidgetBase = ({
   type,
   ...props
 }: CallTrustBoxWidgetBaseProps) => {
-  const templateResolutionLimits =
-    TRUSTPILOT_WIDGET_TEMPLATE_RESOLUTION_LIMITS[type];
-
-  switch (height) {
-    case "max":
-      props.styleHeight = templateResolutionLimits.max?.height;
-      break;
-    case "min":
-    case "auto":
-      props.styleHeight = templateResolutionLimits.min?.height;
-      break;
-    default:
-      props.styleHeight = height;
-      break;
-  }
-
-  switch (width) {
-    case "auto":
-      props.styleWidth = "100%";
-      break;
-    case "max":
-      props.styleWidth = templateResolutionLimits.max?.width;
-      break;
-    case "min":
-      props.styleWidth = templateResolutionLimits.min?.width;
-      break;
-    default:
-      props.styleWidth = width;
-      break;
-  }
-
   return (
     <TrustBoxWidgetBase
       {...props}
+      {...widgetResolutionMatcher({ height, width, type })}
       templateId={TRUSTPILOT_WIDGET_TEMPLATE_IDS[type]}
     />
   );
@@ -304,3 +272,5 @@ export const TrustBoxWidget = {
   ...testimonialTrustBoxWidgets,
   ...productReviewTrustBoxWidgets,
 };
+
+<TrustBoxWidget.ProductReviews sku=""></TrustBoxWidget.ProductReviews>;
