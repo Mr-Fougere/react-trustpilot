@@ -43,7 +43,11 @@ export const TrustBoxWidgetBase = ({
   if (!isDisplayed) return null;
 
   return (
-    <div className="trustpilot-widget" ref={widgetRef} {...data}>
+    <div
+      className="trustpilot-widget"
+      style={{ maxWidth: "max-content", maxHeight: "max-content" }}
+      ref={widgetRef}
+      {...data}>
       <a href={widgetUrl} target="_blank">
         {children}
       </a>

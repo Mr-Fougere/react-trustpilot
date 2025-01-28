@@ -21,7 +21,10 @@ export const HorizontalWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
 ) => {
   return <TrustBoxWidget.Horizontal {...args} />;
 };
-HorizontalWidget.args = {};
+HorizontalWidget.args = {
+  height: "auto",
+  width: "100px",
+};
 
 export const MicroButtonWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
   args: TrustBoxWidgetAttributesPropsT

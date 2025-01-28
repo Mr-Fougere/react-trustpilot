@@ -1,8 +1,8 @@
 import { CSSProperties, PropsWithChildren } from "react";
 
 interface TrustBoxWidgetAttributesProps {
-  styleHeight: CSSProperties["height"];
-  styleWidth: CSSProperties["width"];
+  styleHeight: dimensionT;
+  styleWidth: dimensionT;
   scrollToList: boolean;
   stars: number[];
   noReview: "hide" | "show";
@@ -27,6 +27,26 @@ interface TrustBoxWidgetAttributesProps {
   thirdPartyReviews: boolean;
 }
 
+type dimensionT = `${number}%` | `${number}px`;
+
+// TODO: auto sizing
+type limitSizeProps = dimensionT | "min" | "max" | "auto";
+
+export type TrustBoxWidgetResolutionT = {
+  height: dimensionT;
+  width: dimensionT;
+};
+
+export type TrustBoxWidgetResolutionProps = Partial<{
+  height: limitSizeProps;
+  width: limitSizeProps;
+}>;
+
+export type TrustBoxWidgetResolutionLimits = {
+  max?: TrustBoxWidgetResolutionT;
+  min: TrustBoxWidgetResolutionT;
+};
+
 export type TrustBoxWidgetAttributesPropsT =
   Partial<TrustBoxWidgetAttributesProps>;
 
@@ -46,11 +66,9 @@ export type TrustBoxWidgetAttributeKey = `data-${KebabKeys<
 >}`;
 
 export type TrustBoxWidgetBasicAttributesProps = Partial<
-  Pick<
-    TrustBoxWidgetAttributesPropsT,
-    "styleHeight" | "styleWidth" | "fontFamily" | "locale" | "theme"
-  >
+  Pick<TrustBoxWidgetAttributesPropsT, "fontFamily" | "locale" | "theme">
 > &
+  TrustBoxWidgetResolutionProps &
   PropsWithChildren;
 
 export type TrustBoxWidgetBasicProductAttributesProps =
