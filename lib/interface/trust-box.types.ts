@@ -64,8 +64,9 @@ export type TrustBoxWidgetAttributeKey = `data-${KebabKeys<
   keyof TrustBoxWidgetAttributesProps
 >}`;
 
-export type TrustBoxWidgetBasicAttributesProps = Partial<
-  Pick<TrustBoxWidgetAttributesPropsT, "fontFamily" | "locale" | "theme">
+export type TrustBoxWidgetBasicAttributesProps = Pick<
+  TrustBoxWidgetAttributesPropsT,
+  "fontFamily" | "locale" | "theme"
 > &
   TrustBoxWidgetResolutionProps &
   PropsWithChildren;
@@ -79,10 +80,9 @@ export type TrustBoxWidgetMicroButtonAttributesProps = Omit<
   "theme"
 >;
 
-export type TrustBoxWidgetMicroReviewCountAttributesProps = Partial<
+export type TrustBoxWidgetMicroReviewCountAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-    Pick<TrustBoxWidgetAttributesPropsT, "minReviewCount" | "styleAlignment">
->;
+    Pick<TrustBoxWidgetAttributesPropsT, "minReviewCount" | "styleAlignment">;
 
 export type TrustBoxWidgetReviewCollectorAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
@@ -90,9 +90,7 @@ export type TrustBoxWidgetReviewCollectorAttributesProps =
 
 export type TrustBoxWidgetBasicReviewAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-    Partial<
-      Pick<TrustBoxWidgetAttributesPropsT, "stars" | "reviewLanguage" | "tags">
-    >;
+    Pick<TrustBoxWidgetAttributesPropsT, "stars" | "reviewLanguage" | "tags">;
 
 export type TrustBoxWidgeReviewListFileredAttributesProps = Omit<
   TrustBoxWidgetBasicReviewAttributesProps,
@@ -101,11 +99,11 @@ export type TrustBoxWidgeReviewListFileredAttributesProps = Omit<
 
 export type TrustBoxWidgeProductReviewsWithStarAttributesProps =
   TrustBoxWidgetBasicProductAttributesProps &
-    Partial<Pick<TrustBoxWidgetAttributesPropsT, "starColor">>;
+    Pick<TrustBoxWidgetAttributesPropsT, "starColor">;
 
 export type TrustBoxWidgeProductReviewsMultiSourceAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &
-    Partial<Pick<TrustBoxWidgetAttributesPropsT, "linkColor">>;
+    Pick<TrustBoxWidgetAttributesPropsT, "linkColor">;
 
 export type TrustBoxWidgeProductReviewsSEOAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &

@@ -1,13 +1,18 @@
 import { TRUSTPILOT_WIDGET_TEMPLATE_RESOLUTION_LIMITS } from "../interface/trust-box.const";
 import { TrustBoxWidgetType } from "../interface/trust-box.enums";
 import {
-  TrustBoxWidgetAttributesPropsT,
-  TrustBoxWidgetResolutionProps,
+  type TrustBoxWidgetAttributesPropsT,
+  type TrustBoxWidgetResolutionProps,
 } from "../interface/trust-box.types";
 
 type WidgetResolutionMatcherProps = TrustBoxWidgetResolutionProps & {
   type: TrustBoxWidgetType;
 };
+
+type MatchingResolution = Pick<
+  TrustBoxWidgetAttributesPropsT,
+  "styleHeight" | "styleWidth"
+>;
 
 export const widgetResolutionMatcher = ({
   type,
@@ -17,10 +22,7 @@ export const widgetResolutionMatcher = ({
   const templateResolutionLimits =
     TRUSTPILOT_WIDGET_TEMPLATE_RESOLUTION_LIMITS[type];
 
-  const matchingResolution: Pick<
-    TrustBoxWidgetAttributesPropsT,
-    "styleHeight" | "styleWidth"
-  > = {};
+  const matchingResolution: MatchingResolution = {};
 
   switch (height) {
     case "auto":

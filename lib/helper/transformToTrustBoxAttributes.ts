@@ -11,14 +11,12 @@ export const transformToTrustBoxAttributes = <
 ): Partial<TrustBoxWidgetAttributes> => {
   const trustBoxWidgetAttributes = {} as Partial<TrustBoxWidgetAttributes>;
 
-  for (const attributeKey in attributesProps) {
+  Object.entries(attributesProps).forEach(([attributeKey, attributeValue]) => {
     const trustBoxAttributeKey = `data-${attributeKey
       .replace(/([A-Z])/g, "-$1")
       .toLowerCase()}` as TrustBoxWidgetAttributeKey;
-    trustBoxWidgetAttributes[trustBoxAttributeKey] = String(
-      attributesProps[attributeKey]
-    );
-  }
+    trustBoxWidgetAttributes[trustBoxAttributeKey] = String(attributeValue);
+  });
 
   return trustBoxWidgetAttributes;
 };

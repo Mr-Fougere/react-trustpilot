@@ -1,7 +1,10 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
 import { TrustPilotProvider } from "../context/TrustpilotProvider";
-import { TrustBoxWidgetAttributesPropsT } from "../interface/trust-box.types";
+import {
+  TrustBoxWidgetAttributesPropsT,
+  TrustBoxWidgetBasicAttributesProps,
+} from "../interface/trust-box.types";
 
 export default {
   title: "TrustPilot/Essentials",
@@ -14,8 +17,8 @@ export default {
   ],
 } as Meta;
 
-export const HorizontalWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
-  args: TrustBoxWidgetAttributesPropsT
+export const HorizontalWidget: StoryFn<TrustBoxWidgetBasicAttributesProps> = (
+  args: TrustBoxWidgetBasicAttributesProps
 ) => {
   return <TrustBoxWidget.Horizontal {...args} />;
 };
