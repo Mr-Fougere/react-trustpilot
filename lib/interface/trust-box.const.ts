@@ -73,7 +73,7 @@ export const TRUSTPILOT_WIDGET_TEMPLATE_RESOLUTION_LIMITS: Record<
   [TrustBoxWidgetType.Starter]: {},
   [TrustBoxWidgetType.ReviewCollector]: {},
   [TrustBoxWidgetType.Carousel]: {
-    min: { height: "140px", width: "520px" },
+    min: { height: "140px", width: "300px" },
     max: { height: "140px", width: "100%" },
   },
   [TrustBoxWidgetType.DropDown]: {

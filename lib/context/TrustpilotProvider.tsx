@@ -13,7 +13,7 @@ interface TrustPilotProviderProps extends PropsWithChildren {
 }
 
 export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
-  businessUnitId = "PREVIEW_ID",
+  businessUnitId = "PREVIEW_BUID",
   children,
   defaultLocale = "en-US",
   webSiteUrl,
@@ -22,7 +22,7 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
-  if (businessUnitId === "PREVIEW_ID") {
+  if (businessUnitId === "PREVIEW_BUID") {
     console.warn(
       "You actually in preview mode of trustpilot, please provide the businessUnitId to the trustpilot provider to fetch your own reveiws"
     );

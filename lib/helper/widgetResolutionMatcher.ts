@@ -25,9 +25,6 @@ export const widgetResolutionMatcher = ({
   const matchingResolution: MatchingResolution = {};
 
   switch (height) {
-    case "auto":
-      matchingResolution.styleHeight = "100%";
-      break;
     case "max":
       matchingResolution.styleHeight = templateResolutionLimits.max?.height;
       break;
@@ -40,9 +37,6 @@ export const widgetResolutionMatcher = ({
   }
 
   switch (width) {
-    case "auto":
-      matchingResolution.styleWidth = "100%";
-      break;
     case "max":
       matchingResolution.styleWidth = templateResolutionLimits.max?.width;
       break;

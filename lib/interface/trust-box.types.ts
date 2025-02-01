@@ -120,7 +120,7 @@ interface TrustBoxWidgetAttributesProps {
 
 type DimensionT = `${number}%` | `${number}px`;
 
-type limitSizeProps = DimensionT | "min" | "max" | "auto";
+type limitSizeProps = DimensionT | "min" | "max";
 
 export type TrustBoxWidgetResolutionT = {
   height: DimensionT;
@@ -164,7 +164,7 @@ export type TrustBoxWidgetBasicAttributesProps = Pick<
 
 export type TrustBoxWidgetBasicProductAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-    Pick<TrustBoxWidgetAttributesProps, "sku">;
+    Pick<TrustBoxWidgetAttributesPropsT, "sku">;
 
 export type TrustBoxWidgetMicroButtonAttributesProps = Omit<
   TrustBoxWidgetBasicAttributesProps,

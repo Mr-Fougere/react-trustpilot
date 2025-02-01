@@ -13,8 +13,8 @@ type CallTrustBoxWidgetBaseProps = PropsWithChildren &
   TrustBoxWidgetResolutionProps & { type: TrustBoxWidgetType };
 
 export const useTrustBoxWidgetBase = ({
-  height = "auto",
-  width = "auto",
+  height = "min",
+  width = "max",
   type,
   ...props
 }: CallTrustBoxWidgetBaseProps) => {
