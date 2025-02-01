@@ -25,7 +25,7 @@ The `TrustPilotProvider` component is a context provider that makes Trustpilot c
 #### Props
 
 - `businessUnitId`: The Trustpilot business unit ID for your company.
-- `widgetUrl`: The URL of the Trustpilot widget.
+- `websiteUrl`: The URL of the website with reviews
 
 #### Example
 
@@ -33,8 +33,6 @@ The `TrustPilotProvider` component is a context provider that makes Trustpilot c
 import { StrictMode } from "react";
 
 import { createRoot } from "react-dom/client";
-
-import "./index.css";
 
 import App from "./App.tsx";
 
@@ -44,7 +42,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <TrustPilotProvider
       businessUnitId="YOUR_BUSINESSUNIT_ID"
-      widgetUrl="YOUR_WIDGET_URL">
+      websiteUrl="YOUR_WEBSITE_URL">
       <App />
     </TrustPilotProvider>
   </StrictMode>

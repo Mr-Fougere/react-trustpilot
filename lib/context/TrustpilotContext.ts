@@ -7,7 +7,7 @@ interface TrustPilotContextProps {
   businessUnitId: string;
   widgetUrl: string;
   status: ScriptInjectionStatus;
-  locale: LocaleProps;
+  locale?: LocaleProps | NonNullable<string>;
   loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 

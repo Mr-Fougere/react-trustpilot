@@ -7,7 +7,9 @@ import { useTrustBoxWidgetBase } from "../hooks/useTrustBoxWidgetBase";
 
 export const TestimonialTrustBoxWidget = {
   /**
-   * Displays a minimalistic overview of all your Trustpilot stats.
+   * An eye-catching non-clickable TrustBox suitable for your checkout page.
+   *
+   * Focuses on overall TrustScore. Shows 15 latest reviews
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/53aa8912dec7e10d38f59f36/screenshot.png)
    */

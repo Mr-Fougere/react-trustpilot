@@ -8,15 +8,15 @@ import { FC, PropsWithChildren, RefObject } from "react";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
   businessUnitId?: string;
-  webSiteUrl: string;
-  defaultLocale?: LocaleProps;
+  websiteUrl: string;
+  locale?: LocaleProps | NonNullable<string>;
 }
 
 export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
   businessUnitId = "PREVIEW_BUID",
   children,
-  defaultLocale = "en-US",
-  webSiteUrl,
+  locale,
+  websiteUrl,
 }) => {
   const status = useScript(
     TRUSTPILOT_WIDGET_SCRIPT_URL
@@ -28,10 +28,10 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
     );
   }
 
-  const locale = (usePreferredLanguage() || defaultLocale) as LocaleProps;
+  locale ||= usePreferredLanguage();
   const localeDomain = locale.split("-")[0];
 
-  const widgetUrl = `https://${localeDomain}.trustpilot.com/review/${webSiteUrl}`;
+  const widgetUrl = `https://${localeDomain}.trustpilot.com/review/${websiteUrl}`;
 
   const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
     switch (status) {

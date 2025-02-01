@@ -8,7 +8,7 @@ export default {
   title: "TrustPilot/ReviewCollector",
   decorators: [
     (Story) => (
-      <TrustPilotProvider webSiteUrl={process.env.WEBSITE_URL!}>
+      <TrustPilotProvider websiteUrl={process.env.WEBSITE_URL!}>
         <Story />
       </TrustPilotProvider>
     ),

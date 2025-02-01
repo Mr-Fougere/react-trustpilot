@@ -10,6 +10,7 @@ export const TrustBoxWidgetBase = ({
   ...props
 }: PropsWithChildren & TrustBoxWidgetAttributesPropsT) => {
   const widgetRef = useRef(null);
+
   const {
     widgetUrl,
     businessUnitId: businessunitId,

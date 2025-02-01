@@ -98,7 +98,7 @@ interface TrustBoxWidgetAttributesProps {
   stars: StarsProps;
   noReview: "hide" | "show";
   fontFamily: FontFamilyProps;
-  locale: LocaleProps;
+  locale: LocaleProps | NonNullable<string>;
   theme: "dark" | "ligth";
   sku: string | string[];
   minReviewCount: number;
@@ -164,7 +164,7 @@ export type TrustBoxWidgetBasicAttributesProps = Pick<
 
 export type TrustBoxWidgetBasicProductAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-    Pick<TrustBoxWidgetAttributesPropsT, "sku">;
+    Pick<TrustBoxWidgetAttributesProps, "sku">;
 
 export type TrustBoxWidgetMicroButtonAttributesProps = Omit<
   TrustBoxWidgetBasicAttributesProps,

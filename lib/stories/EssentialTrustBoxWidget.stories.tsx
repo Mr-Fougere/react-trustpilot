@@ -11,7 +11,7 @@ export default {
   title: "TrustPilot/Essentials",
   decorators: [
     (Story) => (
-      <TrustPilotProvider webSiteUrl={process.env.WEBSITE_URL!}>
+      <TrustPilotProvider websiteUrl={process.env.WEBSITE_URL!}>
         <Story />
       </TrustPilotProvider>
     ),
@@ -23,10 +23,7 @@ export const HorizontalWidget: StoryFn<TrustBoxWidgetBasicAttributesProps> = (
 ) => {
   return <TrustBoxWidget.Horizontal {...args} />;
 };
-HorizontalWidget.args = {
-  height: "auto",
-  width: "100px",
-};
+HorizontalWidget.args = {};
 
 export const MicroButtonWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
   args: TrustBoxWidgetAttributesPropsT

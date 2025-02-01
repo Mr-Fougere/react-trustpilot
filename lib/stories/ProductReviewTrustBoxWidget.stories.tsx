@@ -11,7 +11,7 @@ export default {
   title: "TrustPilot/ProductReview",
   decorators: [
     (Story) => (
-      <TrustPilotProvider webSiteUrl={process.env.WEBSITE_URL!}>
+      <TrustPilotProvider websiteUrl={process.env.WEBSITE_URL!}>
         <Story />
       </TrustPilotProvider>
     ),
@@ -19,22 +19,28 @@ export default {
 } as Meta;
 
 export const ProductMini: StoryFn<TrustBoxWidgetBasicProductAttributesProps> = (
-  args: TrustBoxWidgetAttributesPropsT
+  args: TrustBoxWidgetBasicProductAttributesProps
 ) => {
   return <TrustBoxWidget.ProductMini {...args} />;
 };
-ProductMini.args = {};
+ProductMini.args = {
+  sku: "PREVIEW",
+};
 
 export const ProductMiniMultiSource: StoryFn<
   TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgetAttributesPropsT) => {
+> = (args: TrustBoxWidgetBasicProductAttributesProps) => {
   return <TrustBoxWidget.ProductMiniMultiSource {...args} />;
 };
-ProductMiniMultiSource.args = {};
+ProductMiniMultiSource.args = {
+  sku: "PREVIEW",
+};
 
 export const ProductReviews: StoryFn<
   TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgetAttributesPropsT) => {
+> = (args: TrustBoxWidgetBasicProductAttributesProps) => {
   return <TrustBoxWidget.ProductReviews {...args} />;
 };
-ProductReviews.args = {};
+ProductReviews.args = {
+  sku: "PREVIEW",
+};
