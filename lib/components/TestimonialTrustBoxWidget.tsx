@@ -11,6 +11,11 @@ export const TestimonialTrustBoxWidget = {
    *
    * Focuses on overall TrustScore. Shows 15 latest reviews
    *
+   * ---
+   * @param {TrustBoxWidgetBasicReviewAttributesProps} props - TrustBox widget properties.
+   * @returns {JSX.Element} The TrustBox Horizontal widget.
+   *
+   * ---
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/53aa8912dec7e10d38f59f36/screenshot.png)
    */
   Carousel: (props: TrustBoxWidgetBasicReviewAttributesProps) =>

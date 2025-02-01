@@ -1,7 +1,13 @@
 import { CSSProperties, PropsWithChildren } from "react";
 
+/**
+ * Represents the available star ratings.
+ */
 type StarsProps = (1 | 2 | 3 | 4 | 5)[];
 
+/**
+ * Defines the available font families for the widget.
+ */
 type FontFamilyProps =
   | "Roboto"
   | "Open Sans"
@@ -47,6 +53,9 @@ type FontFamilyProps =
   | "Crimson Text"
   | "Josefin Sans";
 
+/**
+ * Defines the available languages for reviews.
+ */
 type ReviewLanguageProps =
   | "da"
   | "de"
@@ -64,6 +73,9 @@ type ReviewLanguageProps =
   | "sv"
   | "zh";
 
+/**
+ * Defines the available locales for the widget.
+ */
 export type LocaleProps =
   | "da-DK"
   | "de-AT"
@@ -91,70 +103,208 @@ export type LocaleProps =
   | "sv-SE"
   | "zh-CN";
 
-interface TrustBoxWidgetAttributesProps {
-  styleHeight: DimensionT;
-  styleWidth: DimensionT;
-  scrollToList: boolean;
-  stars: StarsProps;
-  noReview: "hide" | "show";
-  fontFamily: FontFamilyProps;
-  locale: LocaleProps | NonNullable<string>;
-  theme: "dark" | "ligth";
-  sku: string | string[];
-  minReviewCount: number;
-  styleAlignment: "left" | "center" | "right";
-  fullwidth: boolean;
-  reviewLanguage: ReviewLanguageProps;
-  borderColor: CSSProperties["borderColor"];
-  tags: "SelectedReview";
-  buttonColor: CSSProperties["color"];
-  buttonTextColor: CSSProperties["color"];
-  starColor: CSSProperties["color"];
-  schemaType: "Product";
-  linkColor: CSSProperties["color"];
-  name: string;
-  templateId: string;
-  businessunitId: string;
-  thirdPartyReviews: boolean;
-}
-
+/**
+ * Defines the available dimensions in pixels or percentages.
+ */
 type DimensionT = `${number}%` | `${number}px`;
 
+/**
+ * Defines size constraints, allowing specific values such as `min` and `max`.
+ */
 type limitSizeProps = DimensionT | "min" | "max";
 
+/**
+ * Defines the resolution for the TrustBox widget.
+ */
 export type TrustBoxWidgetResolutionT = {
   height: DimensionT;
   width: DimensionT;
 };
 
+/**
+ * Defines the optional resolution properties for the widget.
+ */
 export type TrustBoxWidgetResolutionProps = Partial<{
   height: limitSizeProps;
   width: limitSizeProps;
 }>;
 
+/**
+ * Defines the resolution limits (minimum and maximum sizes) for the widget.
+ */
 export type TrustBoxWidgetResolutionLimits = {
   max?: TrustBoxWidgetResolutionT;
   min?: TrustBoxWidgetResolutionT;
 };
 
+/**
+ * Defines the attributes for configuring a TrustBox widget.
+ */
+export interface TrustBoxWidgetAttributesProps {
+  /**
+   * Defines the height of the widget. Can be specified in `px` or `%` for responsive sizing.
+   */
+  styleHeight: DimensionT;
+
+  /**
+   * Defines the width of the widget. Can be specified in `px` or `%` for responsive sizing.
+   */
+  styleWidth: DimensionT;
+
+  /**
+   * Determines whether the widget should scroll to the review list when clicked.
+   */
+  scrollToList: boolean;
+
+  /**
+   * Defines the number of stars to be displayed.
+   */
+  stars: StarsProps;
+
+  /**
+   * Controls the visibility of the "No Review" message.
+   * - `"hide"`: Do not display when no reviews are available.
+   * - `"show"`: Display even if no reviews are available.
+   */
+  noReview: "hide" | "show";
+
+  /**
+   * Defines the font family used in the widget.
+   */
+  fontFamily: FontFamilyProps;
+
+  /**
+   * Overrides the language set in the provider.
+   */
+  locale: LocaleProps | NonNullable<string>;
+
+  /**
+   * Defines the theme of the widget.
+   * - `"dark"`: Dark mode.
+   * - `"light"`: Light mode.
+   */
+  theme: "dark" | "light";
+
+  /**
+   * Product SKU(s) associated with the reviews.
+   * Can be a single string or an array of SKUs.
+   */
+  sku: string | string[];
+
+  /**
+   * Minimum number of reviews required to display the widget.
+   */
+  minReviewCount: number;
+
+  /**
+   * Defines the alignment of the widget's content.
+   * - `"left"`: Aligns content to the left.
+   * - `"center"`: Centers the content.
+   * - `"right"`: Aligns content to the right.
+   */
+  styleAlignment: "left" | "center" | "right";
+
+  /**
+   * Determines whether the widget should take up the full width of its container.
+   */
+  fullwidth: boolean;
+
+  /**
+   * Defines the language in which reviews should be displayed.
+   */
+  reviewLanguage: ReviewLanguageProps;
+
+  /**
+   * Defines the border color of the widget.
+   */
+  borderColor: CSSProperties["borderColor"];
+
+  /**
+   * Filters reviews by selected tags.
+   * - `"SelectedReview"`: Displays only selected reviews.
+   */
+  tags: "SelectedReview";
+
+  /**
+   * Defines the button color used in the widget.
+   */
+  buttonColor: CSSProperties["color"];
+
+  /**
+   * Defines the text color of the button.
+   */
+  buttonTextColor: CSSProperties["color"];
+
+  /**
+   * Defines the color of the stars in the widget.
+   */
+  starColor: CSSProperties["color"];
+
+  /**
+   * Defines the schema type for structured data (SEO).
+   * - `"Product"`: Indicates that the widget represents a product review.
+   */
+  schemaType: "Product";
+
+  /**
+   * Defines the color of links within the widget.
+   */
+  linkColor: CSSProperties["color"];
+
+  /**
+   * The name of the TrustBox widget.
+   */
+  name: string;
+
+  /**
+   * The template ID used to render the TrustBox widget.
+   */
+  templateId: string;
+
+  /**
+   * The business unit ID associated with Trustpilot.
+   */
+  businessunitId: string;
+
+  /**
+   * Determines whether third-party reviews should be included.
+   */
+  thirdPartyReviews: boolean;
+}
+
+/**
+ * Defines a partial set of TrustBox widget attributes.
+ */
 export type TrustBoxWidgetAttributesPropsT =
   Partial<TrustBoxWidgetAttributesProps>;
 
+/**
+ * Defines the mapping of TrustBox widget attributes to string values.
+ */
 export type TrustBoxWidgetAttributes = Record<
   TrustBoxWidgetAttributeKey,
   string
 >;
 
+/**
+ * Converts camelCase strings to kebab-case.
+ */
 export type KebabKeys<S extends string> = S extends `${infer T}${infer U}`
   ? T extends Capitalize<T>
     ? `-${Lowercase<T>}${KebabKeys<U>}`
     : `${Lowercase<T>}${KebabKeys<U>}`
   : S;
 
+/**
+ * Defines the data attributes for TrustBox widget configuration.
+ */
 export type TrustBoxWidgetAttributeKey = `data-${KebabKeys<
   keyof TrustBoxWidgetAttributesProps
 >}`;
 
+/**
+ * Defines the basic TrustBox widget attributes.
+ */
 export type TrustBoxWidgetBasicAttributesProps = Pick<
   TrustBoxWidgetAttributesPropsT,
   "fontFamily" | "locale" | "theme"
@@ -162,40 +312,67 @@ export type TrustBoxWidgetBasicAttributesProps = Pick<
   TrustBoxWidgetResolutionProps &
   PropsWithChildren;
 
+/**
+ * Defines the attributes for a TrustBox product widget.
+ */
 export type TrustBoxWidgetBasicProductAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
     Pick<TrustBoxWidgetAttributesProps, "sku">;
 
+/**
+ * Defines the attributes for a micro button widget.
+ */
 export type TrustBoxWidgetMicroButtonAttributesProps = Omit<
   TrustBoxWidgetBasicAttributesProps,
   "theme"
 >;
 
+/**
+ * Defines the attributes for a micro review count widget.
+ */
 export type TrustBoxWidgetMicroReviewCountAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "minReviewCount" | "styleAlignment">;
 
+/**
+ * Defines the attributes for a review collector widget.
+ */
 export type TrustBoxWidgetReviewCollectorAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
     Partial<Pick<TrustBoxWidgetAttributesPropsT, "borderColor">>;
 
+/**
+ * Defines the attributes for a basic review widget.
+ */
 export type TrustBoxWidgetBasicReviewAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "stars" | "reviewLanguage" | "tags">;
 
+/**
+ * Defines the attributes for a filtered review list widget.
+ */
 export type TrustBoxWidgeReviewListFileredAttributesProps = Omit<
   TrustBoxWidgetBasicReviewAttributesProps,
   "stars" | "tags"
 >;
 
+/**
+ * Defines the attributes for a product review widget with star customization.
+ */
 export type TrustBoxWidgeProductReviewsWithStarAttributesProps =
   TrustBoxWidgetBasicProductAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "starColor">;
 
+/**
+ * Defines the attributes for a multi-source product review widget.
+ */
 export type TrustBoxWidgeProductReviewsMultiSourceAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "linkColor">;
 
+/**
+ * Defines the attributes for an SEO-optimized product review widget.
+ */
 export type TrustBoxWidgeProductReviewsSEOAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "name">;

@@ -8,28 +8,29 @@ import { FC, PropsWithChildren, RefObject } from "react";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
   businessUnitId?: string;
-  websiteUrl: string;
-  locale?: LocaleProps | NonNullable<string>;
+  websiteUrl?: string;
+  locale?: LocaleProps;
 }
 
 export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
   businessUnitId = "PREVIEW_BUID",
   children,
   locale,
-  websiteUrl,
+  websiteUrl = "",
 }) => {
+  if (businessUnitId === "PREVIEW_BUID" || !websiteUrl) {
+    console.warn(
+      "You are actually in preview mode of trustpilot widget, please provide the BUID and website URL to the trustpilot provider to fetch your own reviews.",
+      "Take a look at the documentation README for more information about how to get credentials for the provider."
+    );
+  }
+
   const status = useScript(
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
-  if (businessUnitId === "PREVIEW_BUID") {
-    console.warn(
-      "You actually in preview mode of trustpilot, please provide the businessUnitId to the trustpilot provider to fetch your own reveiws"
-    );
-  }
-
-  locale ||= usePreferredLanguage();
-  const localeDomain = locale.split("-")[0];
+  const preferredLanguage = usePreferredLanguage() as LocaleProps;
+  const localeDomain = (locale ?? preferredLanguage).split("-")[0];
 
   const widgetUrl = `https://${localeDomain}.trustpilot.com/review/${websiteUrl}`;
 

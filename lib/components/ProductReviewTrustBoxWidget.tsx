@@ -1,4 +1,5 @@
 import {
+  TrustBoxWidgeProductReviewsMultiSourceAttributesProps,
   TrustBoxWidgeProductReviewsSEOAttributesProps,
   TrustBoxWidgetBasicProductAttributesProps,
 } from "../interface/trust-box.types";
@@ -59,7 +60,7 @@ export const ProductReviewTrustBoxWidgets = {
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/57177697fdb1180308e3815f/screenshot.png)
    */
   ProductReviewsMultiSource: (
-    props: TrustBoxWidgetBasicProductAttributesProps
+    props: TrustBoxWidgeProductReviewsMultiSourceAttributesProps
   ) =>
     useTrustBoxWidgetBase({
       ...props,

@@ -34,8 +34,8 @@ export const TrustBoxWidgetBase = ({
   const data = useMemo(
     () =>
       transformToTrustBoxAttributes({
-        ...props,
         locale,
+        ...props,
         businessunitId,
       }),
     [props, businessunitId, locale]
