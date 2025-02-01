@@ -31,10 +31,11 @@ export const TrustBoxWidgetBase = ({
     (status === ScriptInjectionStatus.Ready ||
       status === ScriptInjectionStatus.Unknown);
 
+  props.locale ||= locale;
+
   const data = useMemo(
     () =>
       transformToTrustBoxAttributes({
-        locale,
         ...props,
         businessunitId,
       }),

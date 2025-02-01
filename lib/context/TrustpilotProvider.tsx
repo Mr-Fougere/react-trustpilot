@@ -30,7 +30,9 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
   ) as ScriptInjectionStatus;
 
   const preferredLanguage = usePreferredLanguage() as LocaleProps;
-  const localeDomain = (locale ?? preferredLanguage).split("-")[0];
+  const languageInUsage = locale ?? preferredLanguage;
+
+  const localeDomain = languageInUsage.split("-")[0];
 
   const widgetUrl = `https://${localeDomain}.trustpilot.com/review/${websiteUrl}`;
 
@@ -59,7 +61,7 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
         widgetUrl,
         status,
         loadTrustpilotWidget,
-        locale,
+        locale: languageInUsage,
       }}>
       {children}
     </TrustPilotContext.Provider>

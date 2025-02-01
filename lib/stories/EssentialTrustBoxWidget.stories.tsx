@@ -11,7 +11,7 @@ export default {
   title: "TrustPilot/Essentials",
   decorators: [
     (Story) => (
-      <TrustPilotProvider websiteUrl={process.env.WEBSITE_URL!}>
+      <TrustPilotProvider>
         <Story />
       </TrustPilotProvider>
     ),

@@ -8,7 +8,7 @@ export default {
   title: "TrustPilot/Testimonial",
   decorators: [
     (Story) => (
-      <TrustPilotProvider websiteUrl={process.env.WEBSITE_URL!}>
+      <TrustPilotProvider>
         <Story />
       </TrustPilotProvider>
     ),
