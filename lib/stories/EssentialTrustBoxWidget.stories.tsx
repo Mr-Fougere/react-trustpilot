@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
 import { TrustPilotProvider } from "../context/TrustpilotProvider";
+import React from "react";
 import {
   TrustBoxWidgetAttributesPropsT,
   TrustBoxWidgetBasicAttributesProps,
@@ -10,7 +11,7 @@ export default {
   title: "TrustPilot/Essentials",
   decorators: [
     (Story) => (
-      <TrustPilotProvider webSiteUrl={process.env.WEBSITE_URL}>
+      <TrustPilotProvider webSiteUrl={process.env.WEBSITE_URL!}>
         <Story />
       </TrustPilotProvider>
     ),
@@ -30,7 +31,7 @@ HorizontalWidget.args = {
 export const MicroButtonWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
   args: TrustBoxWidgetAttributesPropsT
 ) => {
-  return <TrustBoxWidget.MicroButon {...args} />;
+  return <TrustBoxWidget.MicroButton {...args} />;
 };
 MicroButtonWidget.args = {};
 

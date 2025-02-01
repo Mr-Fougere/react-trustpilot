@@ -1,19 +1,110 @@
 import { CSSProperties, PropsWithChildren } from "react";
 
+type StarsProps = (1 | 2 | 3 | 4 | 5)[];
+
+type FontFamilyProps =
+  | "Roboto"
+  | "Open Sans"
+  | "Noto Sans JP"
+  | "Lato"
+  | "Montserrat"
+  | "Roboto Condensed"
+  | "Source Sans Pro"
+  | "Raleway"
+  | "Poppins"
+  | "Noto Sans"
+  | "Roboto Slab"
+  | "Merriweather"
+  | "PT Sans"
+  | "Playfair Display"
+  | "Ubuntu"
+  | "Mukta"
+  | "Muli"
+  | "PT Serif"
+  | "Lora"
+  | "Nunito"
+  | "Work Sans"
+  | "Rubik"
+  | "Fira Sans"
+  | "Titillium Web"
+  | "Noto Sans TC"
+  | "Noto Serif"
+  | "Noto Sans KR"
+  | "Nanum Gothic"
+  | "Quicksand"
+  | "Hind Siliguri"
+  | "Nunito Sans"
+  | "Heebo"
+  | "Arimo"
+  | "Oxygen"
+  | "Dosis"
+  | "Barlow"
+  | "Karla"
+  | "Slabo 27px"
+  | "Libre Baskerville"
+  | "Inconsolata"
+  | "Libre Franklin"
+  | "Crimson Text"
+  | "Josefin Sans";
+
+type ReviewLanguageProps =
+  | "da"
+  | "de"
+  | "en"
+  | "es"
+  | "fi"
+  | "fr"
+  | "it"
+  | "ja"
+  | "nb"
+  | "nl"
+  | "pl"
+  | "pt"
+  | "ru"
+  | "sv"
+  | "zh";
+
+export type LocaleProps =
+  | "da-DK"
+  | "de-AT"
+  | "de-CH"
+  | "de-DE"
+  | "en-AU"
+  | "en-CA"
+  | "en-GB"
+  | "en-IE"
+  | "en-NZ"
+  | "en-US"
+  | "es-ES"
+  | "fi-FI"
+  | "fr-BE"
+  | "fr-FR"
+  | "it-IT"
+  | "ja-JP"
+  | "nb-NO"
+  | "nl-BE"
+  | "nl-NL"
+  | "pl-PL"
+  | "pt-BR"
+  | "pt-PT"
+  | "ru-RU"
+  | "sv-SE"
+  | "zh-CN";
+
 interface TrustBoxWidgetAttributesProps {
-  styleHeight: dimensionT;
-  styleWidth: dimensionT;
+  styleHeight: DimensionT;
+  styleWidth: DimensionT;
   scrollToList: boolean;
-  stars: number[];
+  stars: StarsProps;
   noReview: "hide" | "show";
-  fontFamily: CSSProperties["fontFamily"];
-  locale: string;
+  fontFamily: FontFamilyProps;
+  locale: LocaleProps;
   theme: "dark" | "ligth";
   sku: string | string[];
   minReviewCount: number;
   styleAlignment: "left" | "center" | "right";
   fullwidth: boolean;
-  reviewLanguage: string;
+  reviewLanguage: ReviewLanguageProps;
   borderColor: CSSProperties["borderColor"];
   tags: "SelectedReview";
   buttonColor: CSSProperties["color"];
@@ -27,13 +118,13 @@ interface TrustBoxWidgetAttributesProps {
   thirdPartyReviews: boolean;
 }
 
-type dimensionT = `${number}%` | `${number}px`;
+type DimensionT = `${number}%` | `${number}px`;
 
-type limitSizeProps = dimensionT | "min" | "max" | "auto";
+type limitSizeProps = DimensionT | "min" | "max" | "auto";
 
 export type TrustBoxWidgetResolutionT = {
-  height: dimensionT;
-  width: dimensionT;
+  height: DimensionT;
+  width: DimensionT;
 };
 
 export type TrustBoxWidgetResolutionProps = Partial<{

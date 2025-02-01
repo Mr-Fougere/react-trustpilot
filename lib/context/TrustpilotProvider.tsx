@@ -1,14 +1,15 @@
-import { FC, PropsWithChildren, RefObject } from "react";
 import { TrustPilotContext } from "./TrustpilotContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
 import { TrustpilotWidgetError } from "../errors/TrustpilotWidgetError";
 import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { usePreferredLanguage, useScript } from "@uidotdev/usehooks";
+import { LocaleProps } from "../interface/trust-box.types";
+import { FC, PropsWithChildren, RefObject } from "react";
 
 interface TrustPilotProviderProps extends PropsWithChildren {
-  businessUnitId: string;
+  businessUnitId?: string;
   webSiteUrl: string;
-  defaultLocale?: string;
+  defaultLocale?: LocaleProps;
 }
 
 export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
@@ -21,7 +22,13 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
-  const locale = usePreferredLanguage() || defaultLocale;
+  if (businessUnitId === "PREVIEW_ID") {
+    console.warn(
+      "You actually in preview mode of trustpilot, please provide the businessUnitId to the trustpilot provider to fetch your own reveiws"
+    );
+  }
+
+  const locale = (usePreferredLanguage() || defaultLocale) as LocaleProps;
   const localeDomain = locale.split("-")[0];
 
   const widgetUrl = `https://${localeDomain}.trustpilot.com/review/${webSiteUrl}`;

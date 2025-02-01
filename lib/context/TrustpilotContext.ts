@@ -1,12 +1,13 @@
 import { createContext, RefObject, useContext } from "react";
 import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { TrustpilotContextError } from "../errors/TrustpilotContextError";
+import { LocaleProps } from "../interface/trust-box.types";
 
 interface TrustPilotContextProps {
   businessUnitId: string;
   widgetUrl: string;
   status: ScriptInjectionStatus;
-  locale: string;
+  locale: LocaleProps;
   loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 
