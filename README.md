@@ -109,7 +109,7 @@ function App() {
 export default App;
 ```
 
-### ➤ **Filtered Testimonial List** (dark theme, German locale, Spanish reviews with 1, 2, or 3 stars)
+### ➤ **Filtered Testimonial List** (dark theme, minimum height and 50% width,German locale, Spanish reviews with 1, 2, or 3 stars)
 
 ⚠️ If you filter reviews by rating, inform the customer.
 
@@ -121,6 +121,8 @@ function App() {
     <TrustBoxWidget.DropDown
       locale="de-DE"
       theme="dark"
+      height="min"
+      width="50%"
       stars={[1, 2, 3]}
       reviewLanguage="es">
       Loading...
