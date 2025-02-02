@@ -6,7 +6,6 @@ import {
   TrustBoxWidgeProductReviewsMultiSourceAttributesProps,
   TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps,
   TrustBoxWidgeProductReviewsSEOAttributesProps,
-  TrustBoxWidgetBasicProductAttributesProps,
 } from "../interface/trust-box.types";
 import { TrustBoxWidgetType } from "../interface/trust-box.enums";
 import { useTrustBoxWidgetBase } from "../hooks/useTrustBoxWidgetBase";

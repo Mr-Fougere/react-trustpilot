@@ -39,7 +39,7 @@ export const TrustBoxWidgetBase = ({
         ...props,
         businessunitId,
       }),
-    [props, businessunitId, locale]
+    [props, businessunitId]
   );
 
   if (!isDisplayed) return null;
