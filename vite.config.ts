@@ -9,11 +9,9 @@ export default defineConfig({
       name: "react-trustpilot",
       fileName: (format) => `index.${format}.js`,
     },
-    assetsDir: "assets",
     rollupOptions: {
       external: ["react", "react-dom", "@uidotdev/usehooks"],
       output: {
-        assetFileNames: "assets/[name].[hash].[ext]",
         globals: {
           react: "React",
           "react-dom": "ReactDOM",

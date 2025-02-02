@@ -1,34 +1,63 @@
-import { FC, PropsWithChildren, RefObject } from "react";
-import { TrustPilotContext } from "./TrustpilotContext";
+import { TrustpilotContext } from "./TrustpilotContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
-import { TrustpilotWidgetError } from "../errors/TrustpilotWidgetError";
-import { ScriptInjectionStatus } from "../interface/trust-box.interface";
-import { useScript } from "@uidotdev/usehooks";
+import { ScriptInjectionStatus } from "../interface/trust-box.enums";
+import { usePreferredLanguage, useScript } from "@uidotdev/usehooks";
+import { LocaleProps } from "../interface/trust-box.types";
+import { FC, PropsWithChildren, RefObject, useMemo } from "react";
+import { TrustpilotContextError } from "../errors/TrustpilotContextError";
 
-interface TrustPilotProviderProps extends PropsWithChildren {
-  businessUnitId: string;
-  widgetUrl: string;
+interface TrustpilotProviderProps extends PropsWithChildren {
+  businessUnitId?: string;
+  websiteUrl?: string;
+  locale?: LocaleProps;
 }
 
-export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
-  businessUnitId,
-  widgetUrl,
+/**
+ * TrustpilotProvider is a context provider that manages the integration of the Trustpilot widget.
+ * It loads the Trustpilot script, determines the appropriate locale, and provides a function
+ * to load the widget dynamically.
+ *
+ * @component
+ * @param businessUnitId- The Trustpilot Business Unit ID (BUID). If not provided, the widget will be in preview mode.
+ * @param websiteUrl - The URL of the website being reviewed. Used to construct the Trustpilot widget URL.
+ * @param locale - Overrides the browser’s preferred language for the widget.
+ * @param children - Components that will have access to the Trustpilot context.
+ *
+ * @example
+ * ```tsx
+ * <TrustpilotProvider businessUnitId="123456" websiteUrl="example.com">
+ *   <MyComponent />
+ * </TrustpilotProvider>
+ * ```
+ */
+export const TrustpilotProvider: FC<TrustpilotProviderProps> = ({
+  businessUnitId = "PREVIEW_BUID",
   children,
+  locale,
+  websiteUrl = "",
 }) => {
   const status = useScript(
     TRUSTPILOT_WIDGET_SCRIPT_URL
   ) as ScriptInjectionStatus;
 
-  const locale = navigator?.languages?.[0] || "en-US";
+  const preferredLanguage = usePreferredLanguage() as LocaleProps;
+
+  const { widgetUrl, languageInUse } = useMemo(() => {
+    const languageInUse = locale ?? preferredLanguage;
+    const localeDomain = languageInUse.split("-")[0];
+    const widgetUrl = `https://${localeDomain}.trustpilot.com/review/${websiteUrl}`;
+
+    return { widgetUrl, languageInUse };
+  }, [preferredLanguage, locale, websiteUrl]);
 
   const loadTrustpilotWidget = (ref: RefObject<HTMLElement>) => {
     switch (status) {
       case ScriptInjectionStatus.Loading:
-        throw new TrustpilotWidgetError(
+        throw new TrustpilotContextError(
           "TrustpilotWidget not loaded cause Trustpilot script not yet load"
         );
       case ScriptInjectionStatus.Error:
-        throw new TrustpilotWidgetError(
+        throw new TrustpilotContextError(
           "TrustpilotWidget not loaded cause Trustpilot script failed to load"
         );
       default:
@@ -39,16 +68,23 @@ export const TrustPilotProvider: FC<TrustPilotProviderProps> = ({
     }
   };
 
+  if (businessUnitId === "PREVIEW_BUID" || !websiteUrl) {
+    console.warn(
+      "TrustpilotProvider: You are actually in preview mode of trustpilot widget, please provide the BUID and website URL to the trustpilot provider to fetch your own reviews.",
+      "Take a look at the documentation README for more information about how to get credentials for the provider."
+    );
+  }
+
   return (
-    <TrustPilotContext.Provider
+    <TrustpilotContext.Provider
       value={{
         businessUnitId,
         widgetUrl,
         status,
         loadTrustpilotWidget,
-        locale,
+        locale: languageInUse,
       }}>
       {children}
-    </TrustPilotContext.Provider>
+    </TrustpilotContext.Provider>
   );
 };

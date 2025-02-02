@@ -1,23 +1,25 @@
 import { Meta, StoryFn } from "@storybook/react";
-import { TrustBoxWidgetAttributesPropsT } from "../interface/trust-box.interface";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
-import { TrustPilotProvider } from "react-trustpilot";
+import { TrustpilotProvider } from "../context/TrustpilotProvider";
+import React from "react";
+import {
+  TrustBoxWidgetAttributesPropsT,
+  TrustBoxWidgetBasicAttributesProps,
+} from "../interface/trust-box.types";
 
 export default {
-  title: "TrustPilot/Essentials",
+  title: "Trustpilot/Essentials",
   decorators: [
     (Story) => (
-      <TrustPilotProvider
-        businessUnitId={process.env.BUSINESS_UNIT_ID}
-        widgetUrl={process.env.WIDGET_URL}>
+      <TrustpilotProvider>
         <Story />
-      </TrustPilotProvider>
+      </TrustpilotProvider>
     ),
   ],
 } as Meta;
 
-export const HorizontalWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
-  args: TrustBoxWidgetAttributesPropsT
+export const HorizontalWidget: StoryFn<TrustBoxWidgetBasicAttributesProps> = (
+  args: TrustBoxWidgetBasicAttributesProps
 ) => {
   return <TrustBoxWidget.Horizontal {...args} />;
 };
@@ -26,7 +28,7 @@ HorizontalWidget.args = {};
 export const MicroButtonWidget: StoryFn<TrustBoxWidgetAttributesPropsT> = (
   args: TrustBoxWidgetAttributesPropsT
 ) => {
-  return <TrustBoxWidget.MicroButon {...args} />;
+  return <TrustBoxWidget.MicroButton {...args} />;
 };
 MicroButtonWidget.args = {};
 

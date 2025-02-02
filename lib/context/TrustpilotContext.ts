@@ -1,24 +1,25 @@
 import { createContext, RefObject, useContext } from "react";
-import { ScriptInjectionStatus } from "../interface/trust-box.interface";
+import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { TrustpilotContextError } from "../errors/TrustpilotContextError";
+import { LocaleProps } from "../interface/trust-box.types";
 
-interface TrustPilotContextProps {
+interface TrustpilotContextProps {
   businessUnitId: string;
   widgetUrl: string;
   status: ScriptInjectionStatus;
-  locale: string;
+  locale: LocaleProps;
   loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 
-export const TrustPilotContext = createContext<
-  TrustPilotContextProps | undefined
+export const TrustpilotContext = createContext<
+  TrustpilotContextProps | undefined
 >(undefined);
 
-export const useTrustPilotContext = (): TrustPilotContextProps => {
-  const context = useContext(TrustPilotContext);
+export const useTrustpilotContext = (): TrustpilotContextProps => {
+  const context = useContext(TrustpilotContext);
   if (!context) {
     throw new TrustpilotContextError(
-      "useTrustPilot must be used within a TrustPilotProvider"
+      "useTrustpilot must be used within a TrustpilotProvider"
     );
   }
   return context;

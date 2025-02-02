@@ -2,21 +2,21 @@ import {
   TrustBoxWidgetAttributeKey,
   TrustBoxWidgetAttributes,
   TrustBoxWidgetAttributesPropsT,
-} from "../interface/trust-box.interface";
+} from "../interface/trust-box.types";
 
 export const transformToTrustBoxAttributes = <
   T extends TrustBoxWidgetAttributesPropsT
 >(
-  obj: T
+  attributesProps: T
 ): Partial<TrustBoxWidgetAttributes> => {
-  const result = {} as Partial<TrustBoxWidgetAttributes>;
+  const trustBoxWidgetAttributes = {} as Partial<TrustBoxWidgetAttributes>;
 
-  for (const key in obj) {
-    const newKey = `data-${key
+  Object.entries(attributesProps).forEach(([attributeKey, attributeValue]) => {
+    const trustBoxAttributeKey = `data-${attributeKey
       .replace(/([A-Z])/g, "-$1")
       .toLowerCase()}` as TrustBoxWidgetAttributeKey;
-    result[newKey] = String(obj[key]);
-  }
+    trustBoxWidgetAttributes[trustBoxAttributeKey] = String(attributeValue);
+  });
 
-  return result;
+  return trustBoxWidgetAttributes;
 };

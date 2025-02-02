@@ -1,3 +1,3 @@
 export { TrustBoxWidget } from "./components/TrustBoxWidget";
-export { TrustPilotProvider } from "./context/TrustpilotProvider";
-export * from "./interface/trust-box.interface";
+export { TrustpilotProvider } from "./context/TrustpilotProvider";
+export * from "./interface/trust-box.types";
