@@ -124,7 +124,7 @@ function App() {
       height="min"
       width="50%"
       stars={[1, 2, 3]}
-      reviewLanguage="es">
+      reviewLanguages={["es"]}>
       Loading...
     </TrustBoxWidget.DropDown>
   );
@@ -146,7 +146,7 @@ function App() {
       locale="fr-FR"
       theme="dark"
       stars={[4, 5]}
-      reviewLanguage="fr"
+      reviewLanguages={["fr"]}
       starColor="blue"
       sku="SKU_EXAMPLE_2"
       fontFamily="Oxygen"
