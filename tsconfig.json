@@ -10,17 +10,19 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "declaration": true,
+    "declarationDir": "./dist/types",
+    "emitDeclarationOnly": true, 
     "jsx": "react-jsx",
-    "typeRoots": ["./dist/index.d.ts"],
-    
+
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "typeRoots": ["./node_modules/@types", "./dist/types"]
   },
   "include": ["lib"],
   "exclude": ["lib/stories"],
   "references": [{ "path": "./tsconfig.node.json" }]
-} 
+}
