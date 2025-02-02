@@ -18,6 +18,6 @@ export default {
 export const ReviewCollector: StoryFn<TrustBoxWidgetAttributesPropsT> = (
   args: TrustBoxWidgetAttributesPropsT
 ) => {
-  return <TrustBoxWidget.ReviewColletor {...args} />;
+  return <TrustBoxWidget.ReviewCollector {...args} />;
 };
 ReviewCollector.args = {};

@@ -4,11 +4,29 @@ import { useTrustBoxWidgetBase } from "../hooks/useTrustBoxWidgetBase";
 
 export const CollectReviewTrustBoxWidgets = {
   /**
-   * Displays a minimalistic overview of all your Trustpilot stats.
+   * ---
+   * TrustBox Widget ReviewCollector - Collect Review
+   * ---
+   *
+   * Deliver a seal of trust and collect organic reviews.
+   *
+   * Helps you collect reviews directly from your own site. Has a clean and simple design.
+   *
+   * ---
+   *
+   * @param height Defines the widget height in `px` or `%`. Supports `min` and `max` for responsive sizing.
+   * @param width Defines the widget width in `px` or `%`. Supports `min` and `max` for responsive sizing.
+   * @param locale Overrides the language set in the provider.
+   * @param theme Defines the widget theme (`light` or `dark`).
+   * @param fontFamily Defines the font family.
+   * @param borderColor Custom the widget border color.
+   * @param children Custom loading element (default: none).
+   *
+   * @returns The TrustBox ReviewCollector widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/56278e9abfbbba0bdcd568bc/screenshot.png)
    */
-  ReviewColletor: (props: TrustBoxWidgetReviewCollectorAttributesProps) =>
+  ReviewCollector: (props: TrustBoxWidgetReviewCollectorAttributesProps) =>
     useTrustBoxWidgetBase({
       ...props,
       type: TrustBoxWidgetType.ReviewCollector,
