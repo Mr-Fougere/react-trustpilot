@@ -13,7 +13,11 @@ interface TrustpilotProviderProps extends PropsWithChildren {
 }
 
 /**
- * TrustpilotProvider is a context provider that manages the integration of the Trustpilot widget.
+ * ---
+ * Trustpilot Provider
+ * ---
+ *
+ * This context provider manages the integration of the Trustpilot widget.
  * It loads the Trustpilot script, determines the appropriate locale, and provides a function
  * to load the widget dynamically.
  *
