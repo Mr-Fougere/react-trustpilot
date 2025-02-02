@@ -1,5 +1,5 @@
 import { PropsWithChildren, useEffect, useMemo, useRef } from "react";
-import { useTrustPilotContext } from "../context/TrustpilotContext";
+import { useTrustpilotContext } from "../context/TrustpilotContext";
 import { TrustBoxWidgetAttributesPropsT } from "../interface/trust-box.types";
 
 import { transformToTrustBoxAttributes } from "../helper/transformToTrustBoxAttributes";
@@ -17,7 +17,7 @@ export const TrustBoxWidgetBase = ({
     status,
     locale,
     loadTrustpilotWidget,
-  } = useTrustPilotContext();
+  } = useTrustpilotContext();
 
   useEffect(() => {
     if (status === ScriptInjectionStatus.Ready) {

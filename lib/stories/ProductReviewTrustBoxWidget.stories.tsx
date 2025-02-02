@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
-import { TrustPilotProvider } from "../context/TrustpilotProvider";
+import { TrustpilotProvider } from "../context/TrustpilotProvider";
 import {
   TrustBoxWidgeProductReviewsMultiSourceAttributesProps,
   TrustBoxWidgeProductReviewsSEOAttributesProps,
@@ -9,12 +9,12 @@ import {
 import React from "react";
 
 export default {
-  title: "TrustPilot/ProductReview",
+  title: "Trustpilot/ProductReview",
   decorators: [
     (Story) => (
-      <TrustPilotProvider>
+      <TrustpilotProvider>
         <Story />
-      </TrustPilotProvider>
+      </TrustpilotProvider>
     ),
   ],
 } as Meta;

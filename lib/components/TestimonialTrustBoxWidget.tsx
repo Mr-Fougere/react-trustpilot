@@ -30,7 +30,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox Carousel widget.
    *
@@ -63,7 +63,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox DropDown widget.
    *
@@ -96,7 +96,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox Grid widget.
    *
@@ -126,7 +126,7 @@ export const TestimonialTrustBoxWidget = {
    * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
    * that reviews are being filtered.
    *
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox List widget.
    *
@@ -156,7 +156,7 @@ export const TestimonialTrustBoxWidget = {
    * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
    * that reviews are being filtered.
    *
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox ListFiltered widget.
    *
@@ -189,7 +189,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox MiniCarousel widget.
    *
@@ -222,7 +222,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox PopUp widget.
    *
@@ -255,7 +255,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox Quote widget.
    *
@@ -287,7 +287,7 @@ export const TestimonialTrustBoxWidget = {
    * that reviews are being filtered.
    *
    * @param stars Filter reviews to display by stars count,
-   * @param reviewLanguage Filter review to display by language of the review
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox Slider widget.
    *

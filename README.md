@@ -1,4 +1,4 @@
-# ⭐ TrustPilot React Widget Library
+# ⭐ Trustpilot React Widget Library
 
 This library provides a set of customizable Trustpilot widgets for embedding on your website or application. It allows you to integrate Trustpilot's review display system, product ratings, and review collection functionality.
 
@@ -22,7 +22,7 @@ npm install @mr-fougere/react-trustpilot
 
 ### 🗃️ Initialize the Trustpilot Provider
 
-The `TrustPilotProvider` component is a context provider that makes Trustpilot configuration available to all its child components. It manages the loading state of the Trustpilot script, injects it, and provides the necessary data (business unit ID, widget URL, locale, and a function to load the widget).
+The `TrustpilotProvider` component is a context provider that makes Trustpilot configuration available to all its child components. It manages the loading state of the Trustpilot script, injects it, and provides the necessary data (business unit ID, widget URL, locale, and a function to load the widget).
 
 #### 🛠️ Props
 
@@ -35,17 +35,17 @@ The `TrustPilotProvider` component is a context provider that makes Trustpilot c
 #### 🔹 Example
 
 ```tsx
-import { TrustPilotProvider } from "@mr-fougere/react-trustpilot";
+import { TrustpilotProvider } from "@mr-fougere/react-trustpilot";
 import { PropsWithChildren } from "react";
 
 export const TrustpilotLayout = ({ children }: PropsWithChildren) => {
   return (
-    <TrustPilotProvider
+    <TrustpilotProvider
       businessUnitId="YOUR_BUSINESSUNIT_ID"
       widgetUrl="YOUR_WIDGET_URL"
       locale="fr-FR">
       {children}
-    </TrustPilotProvider>
+    </TrustpilotProvider>
   );
 };
 ```
@@ -54,7 +54,7 @@ export const TrustpilotLayout = ({ children }: PropsWithChildren) => {
 
 ## 💭 Using the `TrustBoxWidget` Component
 
-Once the provider is initialized, you can use any Trustpilot widget inside the application. TrustBox widgets only work within a `TrustPilotProvider`.
+Once the provider is initialized, you can use any Trustpilot widget inside the application. TrustBox widgets only work within a `TrustpilotProvider`.
 
 ### 🎛️ General Props
 

@@ -1,5 +1,10 @@
 import {
+  TrustBoxWidgeMiniProductReviewsAttributesProps,
+  TrustBoxWidgeProductReviewsAttributesProps,
+  TrustBoxWidgeProductReviewsCarouselAttributesProps,
+  TrustBoxWidgeProductReviewsGalleryAttributesProps,
   TrustBoxWidgeProductReviewsMultiSourceAttributesProps,
+  TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps,
   TrustBoxWidgeProductReviewsSEOAttributesProps,
   TrustBoxWidgetBasicProductAttributesProps,
 } from "../interface/trust-box.types";
@@ -24,13 +29,22 @@ export const ProductReviewTrustBoxWidgets = {
    * @param theme Defines the widget theme (`light` or `dark`).
    * @param fontFamily Defines the font family.
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
+   * @param starColor Define the color of the stars
+   * @param scrollToList Determines whether the widget should scroll to the review list when clicked.
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
+   * @param styleAlignment Defines the alignment of the widget's content.
+   * - `left`: Aligns content to the left.
+   * - `center`: Centers the content.
+   * - `right`: Aligns content to the right.
    * @param children Custom loading element (default: none).
    *
    * @returns The TrustBox ProductMini widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/54d39695764ea907c0f34825/screenshot.png)
    */
-  ProductMini: (props: TrustBoxWidgetBasicProductAttributesProps) =>
+  ProductMini: (props: TrustBoxWidgeMiniProductReviewsAttributesProps) =>
     useTrustBoxWidgetBase({ ...props, type: TrustBoxWidgetType.ProductMini }),
 
   /**
@@ -50,13 +64,24 @@ export const ProductReviewTrustBoxWidgets = {
    * @param theme Defines the widget theme (`light` or `dark`).
    * @param fontFamily Defines the font family.
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
+   * @param starColor Define the color of the stars
+   * @param scrollToList Determines whether the widget should scroll to the review list when clicked.
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
+   * @param styleAlignment Defines the alignment of the widget's content.
+   * - `left`: Aligns content to the left.
+   * - `center`: Centers the content.
+   * - `right`: Aligns content to the right.
    * @param children Custom loading element (default: none).
    *
    * @returns The TrustBox ProductMiniMultiSource widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/577258fb31f02306e4e3aaf9/screenshot.png)
    */
-  ProductMiniMultiSource: (props: TrustBoxWidgetBasicProductAttributesProps) =>
+  ProductMiniMultiSource: (
+    props: TrustBoxWidgeMiniProductReviewsAttributesProps
+  ) =>
     useTrustBoxWidgetBase({
       ...props,
       type: TrustBoxWidgetType.ProductMiniMultiSource,
@@ -78,14 +103,23 @@ export const ProductReviewTrustBoxWidgets = {
    * @param locale Overrides the language set in the provider.
    * @param theme Defines the widget theme (`light` or `dark`).
    * @param fontFamily Defines the font family.
-   * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
+   * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs
+   * @param starColor Define the color of the stars
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
    * @param children Custom loading element (default: none).
+   *
+   * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
+   * that reviews are being filtered.
+   *
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox ProductReviews widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/544a426205dc0a09088833c6/screenshot.png)
    */
-  ProductReviews: (props: TrustBoxWidgetBasicProductAttributesProps) =>
+  ProductReviews: (props: TrustBoxWidgeProductReviewsAttributesProps) =>
     useTrustBoxWidgetBase({
       ...props,
       type: TrustBoxWidgetType.ProductReviews,
@@ -108,13 +142,25 @@ export const ProductReviewTrustBoxWidgets = {
    * @param theme Defines the widget theme (`light` or `dark`).
    * @param fontFamily Defines the font family.
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
+   * @param starColor Define the color of the stars
+   * @param thirdPartyReviews Determines whether third-party reviews should be included.
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
    * @param children Custom loading element (default: none).
+   *
+   * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
+   * that reviews are being filtered.
+   *
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox ProductReviewsCarousel widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/60f537b5b0f1639de1fe048c/screenshot.png)
    */
-  ProductReviewsCarousel: (props: TrustBoxWidgetBasicProductAttributesProps) =>
+  ProductReviewsCarousel: (
+    props: TrustBoxWidgeProductReviewsCarouselAttributesProps
+  ) =>
     useTrustBoxWidgetBase({
       ...props,
       type: TrustBoxWidgetType.ProductReviewsCarousel,
@@ -137,13 +183,19 @@ export const ProductReviewTrustBoxWidgets = {
    * @param theme Defines the widget theme (`light` or `dark`).
    * @param fontFamily Defines the font family.
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
+   * @param starColor Define the color of the stars
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
    * @param children Custom loading element (default: none).
    *
    * @returns The TrustBox ProductReviewsGallery widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/546f0626f97a75059086a588/screenshot.png)
    */
-  ProductReviewsGallery: (props: TrustBoxWidgetBasicProductAttributesProps) =>
+  ProductReviewsGallery: (
+    props: TrustBoxWidgeProductReviewsGalleryAttributesProps
+  ) =>
     useTrustBoxWidgetBase({
       ...props,
       type: TrustBoxWidgetType.ProductReviewsGallery,
@@ -168,7 +220,15 @@ export const ProductReviewTrustBoxWidgets = {
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
    * @param starColor Define the color of the stars
    * @param linkColor Define the color of the link to the review
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
    * @param children Custom loading element (default: none).
+   *
+   * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
+   * that reviews are being filtered.
+   *
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox ProductReviewsMultiSource widget.
    *
@@ -201,14 +261,23 @@ export const ProductReviewTrustBoxWidgets = {
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
    * @param starColor Define the color of the stars
    * @param name
+   * @param linkColor Define the color of the link to the review
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
    * @param children Custom loading element (default: none).
+   *
+   * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
+   * that reviews are being filtered.
+   *
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox ProductReviewsMultiSourceSEO widget.
    *
    * ![Description de l'image](https://widget.trustpilot.com/trustboxes/5763bccae0a06d08e809ecbb/screenshot.png)
    */
   ProductReviewsMultiSourceSEO: (
-    props: TrustBoxWidgeProductReviewsSEOAttributesProps
+    props: TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps
   ) =>
     useTrustBoxWidgetBase({
       ...props,
@@ -234,7 +303,15 @@ export const ProductReviewTrustBoxWidgets = {
    * @param sku  Product SKU(s) associated with the reviews. Can be a single string or an array of SKUs.
    * @param starColor Define the color of the stars
    * @param name
+   * @param noReviews the visibility of the "No Review" message.
+   * - `hide`: Do not display when no reviews are available.
+   * - `show`: Display even if no reviews are available.
    * @param children Custom loading element (default: none).
+   *
+   * ⚠️ **Warning:** If you use the next parameter, be sure to inform the customer
+   * that reviews are being filtered.
+   *
+   * @param reviewLanguages Filter review to display by language of the review
    *
    * @returns The TrustBox ProductReviewSEO widget.
    *

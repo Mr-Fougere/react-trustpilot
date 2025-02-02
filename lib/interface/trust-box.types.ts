@@ -166,7 +166,7 @@ export interface TrustBoxWidgetAttributesProps {
    * - `"hide"`: Do not display when no reviews are available.
    * - `"show"`: Display even if no reviews are available.
    */
-  noReview: "hide" | "show";
+  noReviews: "hide" | "show";
 
   /**
    * Defines the font family used in the widget.
@@ -210,9 +210,9 @@ export interface TrustBoxWidgetAttributesProps {
   fullwidth: boolean;
 
   /**
-   * Defines the language in which reviews should be displayed.
+   * Defines the languages in which reviews should be displayed.
    */
-  reviewLanguage: ReviewLanguageProps;
+  reviewLanguages: ReviewLanguageProps[];
 
   /**
    * Defines the border color of the widget.
@@ -270,6 +270,11 @@ export interface TrustBoxWidgetAttributesProps {
    * Determines whether third-party reviews should be included.
    */
   thirdPartyReviews: boolean;
+
+  /**
+   * Defines the color of the text in the widget. ( Not working )
+   */
+  textColor: CSSProperties["color"];
 }
 
 /**
@@ -337,16 +342,18 @@ export type TrustBoxWidgetMicroReviewCountAttributesProps =
 /**
  * Defines the attributes for a review collector widget.
  */
-export type TrustBoxWidgetReviewCollectorAttributesProps =
-  TrustBoxWidgetBasicAttributesProps &
-    Partial<Pick<TrustBoxWidgetAttributesPropsT, "borderColor">>;
+export type TrustBoxWidgetReviewCollectorAttributesProps = Omit<
+  TrustBoxWidgetBasicAttributesProps,
+  "theme"
+> &
+  Partial<Pick<TrustBoxWidgetAttributesPropsT, "borderColor">>;
 
 /**
  * Defines the attributes for a basic review widget.
  */
 export type TrustBoxWidgetBasicReviewAttributesProps =
   TrustBoxWidgetBasicAttributesProps &
-    Pick<TrustBoxWidgetAttributesPropsT, "stars" | "reviewLanguage" | "tags">;
+    Pick<TrustBoxWidgetAttributesPropsT, "stars" | "reviewLanguages" | "tags">;
 
 /**
  * Defines the attributes for a filtered review list widget.
@@ -364,15 +371,53 @@ export type TrustBoxWidgeProductReviewsWithStarAttributesProps =
     Pick<TrustBoxWidgetAttributesPropsT, "starColor">;
 
 /**
+ * Defines the attributes for a mini product review widget.
+ */
+export type TrustBoxWidgeMiniProductReviewsAttributesProps =
+  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+    Pick<
+      TrustBoxWidgetAttributesPropsT,
+      "scrollToList" | "styleAlignment" | "noReviews"
+    >;
+
+/**
+ * Defines the attributes for a product review widget with star customization.
+ */
+export type TrustBoxWidgeProductReviewsAttributesProps =
+  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+    Pick<TrustBoxWidgetAttributesPropsT, "reviewLanguages" | "noReviews">;
+
+/**
+ * Defines the attributes for a product reviews carousel widget with star customization.
+ */
+export type TrustBoxWidgeProductReviewsCarouselAttributesProps =
+  TrustBoxWidgeProductReviewsAttributesProps &
+    Pick<TrustBoxWidgetAttributesPropsT, "thirdPartyReviews">;
+
+/**
+ * Defines the attributes for a product reviews carousel widget with star customization.
+ */
+export type TrustBoxWidgeProductReviewsGalleryAttributesProps =
+  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+    Pick<TrustBoxWidgetAttributesPropsT, "noReviews">;
+
+/**
  * Defines the attributes for a multi-source product review widget.
  */
 export type TrustBoxWidgeProductReviewsMultiSourceAttributesProps =
-  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+  TrustBoxWidgeProductReviewsAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "linkColor">;
 
 /**
  * Defines the attributes for an SEO-optimized product review widget.
  */
 export type TrustBoxWidgeProductReviewsSEOAttributesProps =
-  TrustBoxWidgeProductReviewsWithStarAttributesProps &
+  TrustBoxWidgeProductReviewsAttributesProps &
+    Pick<TrustBoxWidgetAttributesPropsT, "name">;
+
+/**
+ * Defines the attributes for an SEO-optimized product review widget.
+ */
+export type TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps =
+  TrustBoxWidgeProductReviewsMultiSourceAttributesProps &
     Pick<TrustBoxWidgetAttributesPropsT, "name">;

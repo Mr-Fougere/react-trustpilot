@@ -17,7 +17,6 @@ export const CollectReviewTrustBoxWidgets = {
    * @param height Defines the widget height in `px` or `%`. Supports `min` and `max` for responsive sizing.
    * @param width Defines the widget width in `px` or `%`. Supports `min` and `max` for responsive sizing.
    * @param locale Overrides the language set in the provider.
-   * @param theme Defines the widget theme (`light` or `dark`).
    * @param fontFamily Defines the font family.
    * @param borderColor Custom the widget border color.
    * @param children Custom loading element (default: none).
