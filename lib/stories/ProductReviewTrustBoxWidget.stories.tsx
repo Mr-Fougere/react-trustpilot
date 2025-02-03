@@ -1,20 +1,20 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
-import { TrustpilotProvider } from "../context/TrustpilotProvider";
 import {
   TrustBoxWidgeProductReviewsMultiSourceAttributesProps,
   TrustBoxWidgeProductReviewsSEOAttributesProps,
   TrustBoxWidgetBasicProductAttributesProps,
 } from "../interface/trust-box.types";
 import React from "react";
+import { TrustpilotWidgetProvider } from "../context/TrustpilotWidgetProvider";
 
 export default {
   title: "Trustpilot/ProductReview",
   decorators: [
     (Story) => (
-      <TrustpilotProvider>
+      <TrustpilotWidgetProvider>
         <Story />
-      </TrustpilotProvider>
+      </TrustpilotWidgetProvider>
     ),
   ],
 } as Meta;

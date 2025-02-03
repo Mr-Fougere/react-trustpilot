@@ -1,12 +1,12 @@
 {
-  "name": "@mr-fougere/react-trustpilot",
+  "name": "@mr-fougere/react-trustpilot-widgets",
   "private": false,
-  "version": "0.2.2",
+  "version": "0.1.0",
   "author": "mr-fougere",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mr-fougere/react-trustpilot.git"
+    "url": "git+https://github.com/mr-fougere/react-trustpilot-widgets.git"
   },
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -27,7 +27,6 @@
     "react",
     "trustpilot",
     "widget",
-    "react-trustpilot",
     "reviews",
     "testimonials",
     "products",

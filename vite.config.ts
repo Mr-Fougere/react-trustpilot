@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, "./lib/index.ts"),
-      name: "react-trustpilot",
+      name: "react-trustpilot-widgets",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
