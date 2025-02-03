@@ -3,7 +3,7 @@ import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
 import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { usePreferredLanguage, useScript } from "@uidotdev/usehooks";
 import { LocaleProps } from "../interface/trust-box.types";
-import { FC, PropsWithChildren, RefObject, useMemo } from "react";
+import { FC, PropsWithChildren, RefObject, useEffect, useMemo } from "react";
 import { TrustpilotContextError } from "../errors/TrustpilotContextError";
 
 interface TrustpilotWidgetProviderProps extends PropsWithChildren {
@@ -72,12 +72,14 @@ export const TrustpilotWidgetProvider: FC<TrustpilotWidgetProviderProps> = ({
     }
   };
 
-  if (businessUnitId === "PREVIEW_BUID" || !websiteUrl) {
+  useEffect(() => {
+    if (businessUnitId !== "PREVIEW_BUID" && websiteUrl) return;
+
     console.warn(
       "TrustpilotWidgetProvider: You are actually in preview mode of trustpilot widget, please provide the BUID and website URL to the trustpilot provider to fetch your own reviews.",
       "Take a look at the documentation README for more information about how to get credentials for the provider."
     );
-  }
+  }, []);
 
   return (
     <TrustpilotWidgetContext.Provider

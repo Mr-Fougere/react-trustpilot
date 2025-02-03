@@ -1,9 +1,13 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
 import {
+  TrustBoxWidgeMiniProductReviewsAttributesProps,
+  TrustBoxWidgeProductReviewsAttributesProps,
+  TrustBoxWidgeProductReviewsCarouselAttributesProps,
+  TrustBoxWidgeProductReviewsGalleryAttributesProps,
   TrustBoxWidgeProductReviewsMultiSourceAttributesProps,
+  TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps,
   TrustBoxWidgeProductReviewsSEOAttributesProps,
-  TrustBoxWidgetBasicProductAttributesProps,
 } from "../interface/trust-box.types";
 import React from "react";
 import { TrustpilotWidgetProvider } from "../context/TrustpilotWidgetProvider";
@@ -19,9 +23,9 @@ export default {
   ],
 } as Meta;
 
-export const ProductMini: StoryFn<TrustBoxWidgetBasicProductAttributesProps> = (
-  args: TrustBoxWidgetBasicProductAttributesProps
-) => {
+export const ProductMini: StoryFn<
+  TrustBoxWidgeMiniProductReviewsAttributesProps
+> = (args: TrustBoxWidgeMiniProductReviewsAttributesProps) => {
   return <TrustBoxWidget.ProductMini {...args} />;
 };
 ProductMini.args = {
@@ -29,8 +33,8 @@ ProductMini.args = {
 };
 
 export const ProductMiniMultiSource: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgetBasicProductAttributesProps) => {
+  TrustBoxWidgeMiniProductReviewsAttributesProps
+> = (args: TrustBoxWidgeMiniProductReviewsAttributesProps) => {
   return <TrustBoxWidget.ProductMiniMultiSource {...args} />;
 };
 ProductMiniMultiSource.args = {
@@ -38,8 +42,8 @@ ProductMiniMultiSource.args = {
 };
 
 export const ProductReviews: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgetBasicProductAttributesProps) => {
+  TrustBoxWidgeProductReviewsAttributesProps
+> = (args: TrustBoxWidgeProductReviewsAttributesProps) => {
   return <TrustBoxWidget.ProductReviews {...args} />;
 };
 ProductReviews.args = {
@@ -47,8 +51,8 @@ ProductReviews.args = {
 };
 
 export const ProductReviewsCarousel: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgetBasicProductAttributesProps) => {
+  TrustBoxWidgeProductReviewsCarouselAttributesProps
+> = (args: TrustBoxWidgeProductReviewsCarouselAttributesProps) => {
   return <TrustBoxWidget.ProductReviewsCarousel {...args} />;
 };
 ProductReviewsCarousel.args = {
@@ -56,8 +60,8 @@ ProductReviewsCarousel.args = {
 };
 
 export const ProductReviewsGallery: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgetBasicProductAttributesProps) => {
+  TrustBoxWidgeProductReviewsGalleryAttributesProps
+> = (args: TrustBoxWidgeProductReviewsGalleryAttributesProps) => {
   return <TrustBoxWidget.ProductReviewsGallery {...args} />;
 };
 ProductReviewsGallery.args = {
@@ -65,7 +69,7 @@ ProductReviewsGallery.args = {
 };
 
 export const ProductReviewsMultiSource: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
+  TrustBoxWidgeProductReviewsMultiSourceAttributesProps
 > = (args: TrustBoxWidgeProductReviewsMultiSourceAttributesProps) => {
   return <TrustBoxWidget.ProductReviewsMultiSource {...args} />;
 };
@@ -74,8 +78,8 @@ ProductReviewsMultiSource.args = {
 };
 
 export const ProductReviewsMultiSourceSEO: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
-> = (args: TrustBoxWidgeProductReviewsSEOAttributesProps) => {
+  TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps
+> = (args: TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps) => {
   return <TrustBoxWidget.ProductReviewsMultiSourceSEO {...args} />;
 };
 ProductReviewsMultiSourceSEO.args = {
@@ -83,7 +87,7 @@ ProductReviewsMultiSourceSEO.args = {
 };
 
 export const ProductReviewSEO: StoryFn<
-  TrustBoxWidgetBasicProductAttributesProps
+  TrustBoxWidgeProductReviewsSEOAttributesProps
 > = (args: TrustBoxWidgeProductReviewsSEOAttributesProps) => {
   return <TrustBoxWidget.ProductReviewSEO {...args} />;
 };

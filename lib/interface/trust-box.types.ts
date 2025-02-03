@@ -176,7 +176,7 @@ export interface TrustBoxWidgetAttributesProps {
   /**
    * Overrides the language set in the provider.
    */
-  locale: LocaleProps | NonNullable<string>;
+  locale: LocaleProps;
 
   /**
    * Defines the theme of the widget.
@@ -381,7 +381,7 @@ export type TrustBoxWidgeMiniProductReviewsAttributesProps =
     >;
 
 /**
- * Defines the attributes for a product review widget with star customization.
+ * Defines the attributes for a product review widget with languages filter.
  */
 export type TrustBoxWidgeProductReviewsAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &
@@ -395,7 +395,7 @@ export type TrustBoxWidgeProductReviewsCarouselAttributesProps =
     Pick<TrustBoxWidgetAttributesPropsT, "thirdPartyReviews">;
 
 /**
- * Defines the attributes for a product reviews carousel widget with star customization.
+ * Defines the attributes for a product reviews gallery widget with star customization.
  */
 export type TrustBoxWidgeProductReviewsGalleryAttributesProps =
   TrustBoxWidgeProductReviewsWithStarAttributesProps &
@@ -416,7 +416,7 @@ export type TrustBoxWidgeProductReviewsSEOAttributesProps =
     Pick<TrustBoxWidgetAttributesPropsT, "name">;
 
 /**
- * Defines the attributes for an SEO-optimized product review widget.
+ * Defines the attributes for an SEO-optimized product review multi sources widget.
  */
 export type TrustBoxWidgeProductReviewsMultiSourceSEOAttributesProps =
   TrustBoxWidgeProductReviewsMultiSourceAttributesProps &
