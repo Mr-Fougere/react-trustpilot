@@ -27,7 +27,7 @@ The `TrustpilotWidgetProvider` component is a context provider that makes Trustp
 #### 🛠️ Props
 
 - 🏢 **`businessUnitId`** _(required)_: The Trustpilot business unit ID (BUID). Find your BUID with this [tutorial](https://support.trustpilot.com/hc/en-us/articles/4404467354898-Create-a-custom-TrustBox-widget-using-Trustpilot-APIs#finding-a-buid-1).
-- 🌐 **`websiteUrl`** _(required)_: The URL of your Trustpilot widget. It corresponds to the company domain in the [company settings](https://businessapp.b2b.trustpilot.com/company-settings/) without the `http`.
+- 🌐 **`websiteUrl`** _(required)_: The URL of your website. It corresponds to the company domain in the [company settings](https://businessapp.b2b.trustpilot.com/company-settings/) without the `http`.
 - 💬 **`locale`** _(optional)_: The language used in the widgets (defaults to the user's browser language).
 
 ⚠️ If `businessUnitId` and `websiteUrl` are not provided, the preview mode will be used, and your real reviews will not be displayed.
