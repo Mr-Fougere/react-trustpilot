@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
 import React from "react";
-import { TrustBoxWidgetAttributesPropsT } from "../interface/trust-box.types";
+import { TrustBoxWidgetReviewCollectorAttributesProps } from "../interface/trust-box.types";
 import { TrustpilotWidgetProvider } from "../context/TrustpilotWidgetProvider";
 
 export default {
@@ -15,9 +15,9 @@ export default {
   ],
 } as Meta;
 
-export const ReviewCollector: StoryFn<TrustBoxWidgetAttributesPropsT> = (
-  args: TrustBoxWidgetAttributesPropsT
-) => {
+export const ReviewCollector: StoryFn<
+  TrustBoxWidgetReviewCollectorAttributesProps
+> = (args: TrustBoxWidgetReviewCollectorAttributesProps) => {
   return <TrustBoxWidget.ReviewCollector {...args} />;
 };
 ReviewCollector.args = {};

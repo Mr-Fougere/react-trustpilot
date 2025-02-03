@@ -20,14 +20,14 @@ npm install @mr-fougere/react-trustpilot-widgets
 
 ## 🏁 Quickstart
 
-### 🗃️ Initialize the Trustpilot Provider
+### 🗃️ Initialize the Trustpilot Widget Provider
 
-The `TrustpilotProvider` component is a context provider that makes Trustpilot configuration available to all its child components. It manages the loading state of the Trustpilot script, injects it, and provides the necessary data (business unit ID, widget URL, locale, and a function to load the widget).
+The `TrustpilotWidgetProvider` component is a context provider that makes Trustpilot Widget configuration available to all its child components. It manages the loading state of the Trustpilot widget script, injects it, and provides the necessary data (business unit ID, widget URL, locale, and a function to load the widget).
 
 #### 🛠️ Props
 
 - 🏢 **`businessUnitId`** _(required)_: The Trustpilot business unit ID (BUID). Find your BUID with this [tutorial](https://support.trustpilot.com/hc/en-us/articles/4404467354898-Create-a-custom-TrustBox-widget-using-Trustpilot-APIs#finding-a-buid-1).
-- 🌐 **`websiteUrl`** _(required)_: The URL of your Trustpilot widget. It corresponds to the company domain in the [company settings](https://businessapp.b2b.trustpilot.com/company-settings/) without the `http`.
+- 🌐 **`websiteUrl`** _(required)_: The URL of your website. It corresponds to the company domain in the [company settings](https://businessapp.b2b.trustpilot.com/company-settings/) without the `http`.
 - 💬 **`locale`** _(optional)_: The language used in the widgets (defaults to the user's browser language).
 
 ⚠️ If `businessUnitId` and `websiteUrl` are not provided, the preview mode will be used, and your real reviews will not be displayed.
@@ -35,17 +35,17 @@ The `TrustpilotProvider` component is a context provider that makes Trustpilot c
 #### 🔹 Example
 
 ```tsx
-import { TrustpilotProvider } from "@mr-fougere/react-trustpilot-widgets";
+import { TrustpilotWidgetProvider } from "@mr-fougere/react-trustpilot-widgets";
 import { PropsWithChildren } from "react";
 
-export const TrustpilotLayout = ({ children }: PropsWithChildren) => {
+export const TrustpilotWidgetLayout = ({ children }: PropsWithChildren) => {
   return (
-    <TrustpilotProvider
+    <TrustpilotWidgetProvider
       businessUnitId="YOUR_BUSINESSUNIT_ID"
-      widgetUrl="YOUR_WIDGET_URL"
+      websiteUrl="YOUR_WEBSITE_URL"
       locale="fr-FR">
       {children}
-    </TrustpilotProvider>
+    </TrustpilotWidgetProvider>
   );
 };
 ```
@@ -54,7 +54,7 @@ export const TrustpilotLayout = ({ children }: PropsWithChildren) => {
 
 ## 💭 Using the `TrustBoxWidget` Component
 
-Once the provider is initialized, you can use any Trustpilot widget inside the application. TrustBox widgets only work within a `TrustpilotProvider`.
+Once the provider is initialized, you can use any Trustpilot widget inside the application. TrustBox widgets only work within a `TrustpilotWidgetProvider`.
 
 ### 🎛️ General Props
 

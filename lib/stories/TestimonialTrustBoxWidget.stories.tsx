@@ -1,6 +1,9 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { TrustBoxWidget } from "../components/TrustBoxWidget";
-import { TrustBoxWidgetBasicReviewAttributesProps } from "../interface/trust-box.types";
+import {
+  TrustBoxWidgeReviewListFileredAttributesProps,
+  TrustBoxWidgetBasicReviewAttributesProps,
+} from "../interface/trust-box.types";
 import React from "react";
 import { TrustpilotWidgetProvider } from "../context/TrustpilotWidgetProvider";
 
@@ -36,16 +39,16 @@ export const Grid: StoryFn<TrustBoxWidgetBasicReviewAttributesProps> = (
 };
 Grid.args = {};
 
-export const List: StoryFn<TrustBoxWidgetBasicReviewAttributesProps> = (
-  args: TrustBoxWidgetBasicReviewAttributesProps
+export const List: StoryFn<TrustBoxWidgeReviewListFileredAttributesProps> = (
+  args: TrustBoxWidgeReviewListFileredAttributesProps
 ) => {
   return <TrustBoxWidget.List {...args} />;
 };
 List.args = {};
 
-export const ListFiltered: StoryFn<TrustBoxWidgetBasicReviewAttributesProps> = (
-  args: TrustBoxWidgetBasicReviewAttributesProps
-) => {
+export const ListFiltered: StoryFn<
+  TrustBoxWidgeReviewListFileredAttributesProps
+> = (args: TrustBoxWidgeReviewListFileredAttributesProps) => {
   return <TrustBoxWidget.ListFiltered {...args} />;
 };
 ListFiltered.args = {};
