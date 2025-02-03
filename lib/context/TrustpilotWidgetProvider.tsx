@@ -1,4 +1,4 @@
-import { TrustpilotContext } from "./TrustpilotContext";
+import { TrustpilotWidgetContext } from "./TrustpilotWidgetContext";
 import { TRUSTPILOT_WIDGET_SCRIPT_URL } from "../interface/trust-box.const";
 import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { usePreferredLanguage, useScript } from "@uidotdev/usehooks";
@@ -6,7 +6,7 @@ import { LocaleProps } from "../interface/trust-box.types";
 import { FC, PropsWithChildren, RefObject, useMemo } from "react";
 import { TrustpilotContextError } from "../errors/TrustpilotContextError";
 
-interface TrustpilotProviderProps extends PropsWithChildren {
+interface TrustpilotWidgetProviderProps extends PropsWithChildren {
   businessUnitId?: string;
   websiteUrl?: string;
   locale?: LocaleProps;
@@ -14,7 +14,7 @@ interface TrustpilotProviderProps extends PropsWithChildren {
 
 /**
  * ---
- * Trustpilot Provider
+ * Trustpilot Widget Provider
  * ---
  *
  * This context provider manages the integration of the Trustpilot widget.
@@ -34,7 +34,7 @@ interface TrustpilotProviderProps extends PropsWithChildren {
  * </TrustpilotProvider>
  * ```
  */
-export const TrustpilotProvider: FC<TrustpilotProviderProps> = ({
+export const TrustpilotWidgetProvider: FC<TrustpilotWidgetProviderProps> = ({
   businessUnitId = "PREVIEW_BUID",
   children,
   locale,
@@ -74,13 +74,13 @@ export const TrustpilotProvider: FC<TrustpilotProviderProps> = ({
 
   if (businessUnitId === "PREVIEW_BUID" || !websiteUrl) {
     console.warn(
-      "TrustpilotProvider: You are actually in preview mode of trustpilot widget, please provide the BUID and website URL to the trustpilot provider to fetch your own reviews.",
+      "TrustpilotWidgetProvider: You are actually in preview mode of trustpilot widget, please provide the BUID and website URL to the trustpilot provider to fetch your own reviews.",
       "Take a look at the documentation README for more information about how to get credentials for the provider."
     );
   }
 
   return (
-    <TrustpilotContext.Provider
+    <TrustpilotWidgetContext.Provider
       value={{
         businessUnitId,
         widgetUrl,
@@ -89,6 +89,6 @@ export const TrustpilotProvider: FC<TrustpilotProviderProps> = ({
         locale: languageInUse,
       }}>
       {children}
-    </TrustpilotContext.Provider>
+    </TrustpilotWidgetContext.Provider>
   );
 };

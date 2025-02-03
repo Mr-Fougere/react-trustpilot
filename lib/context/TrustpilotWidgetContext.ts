@@ -3,7 +3,7 @@ import { ScriptInjectionStatus } from "../interface/trust-box.enums";
 import { TrustpilotContextError } from "../errors/TrustpilotContextError";
 import { LocaleProps } from "../interface/trust-box.types";
 
-interface TrustpilotContextProps {
+interface TrustpilotWidgetContextProps {
   businessUnitId: string;
   widgetUrl: string;
   status: ScriptInjectionStatus;
@@ -11,12 +11,12 @@ interface TrustpilotContextProps {
   loadTrustpilotWidget: (ref: RefObject<HTMLElement>) => void | undefined;
 }
 
-export const TrustpilotContext = createContext<
-  TrustpilotContextProps | undefined
+export const TrustpilotWidgetContext = createContext<
+  TrustpilotWidgetContextProps | undefined
 >(undefined);
 
-export const useTrustpilotContext = (): TrustpilotContextProps => {
-  const context = useContext(TrustpilotContext);
+export const useTrustpilotWidgetContext = (): TrustpilotWidgetContextProps => {
+  const context = useContext(TrustpilotWidgetContext);
   if (!context) {
     throw new TrustpilotContextError(
       "useTrustpilot must be used within a TrustpilotProvider"

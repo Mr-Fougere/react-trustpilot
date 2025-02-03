@@ -13,7 +13,7 @@ This library provides a set of customizable Trustpilot widgets for embedding on 
 ## 📚 Installation
 
 ```bash
-npm install @mr-fougere/react-trustpilot
+npm install @mr-fougere/react-trustpilot-widgets
 ```
 
 ---
@@ -35,7 +35,7 @@ The `TrustpilotProvider` component is a context provider that makes Trustpilot c
 #### 🔹 Example
 
 ```tsx
-import { TrustpilotProvider } from "@mr-fougere/react-trustpilot";
+import { TrustpilotProvider } from "@mr-fougere/react-trustpilot-widgets";
 import { PropsWithChildren } from "react";
 
 export const TrustpilotLayout = ({ children }: PropsWithChildren) => {
@@ -72,7 +72,7 @@ Once the provider is initialized, you can use any Trustpilot widget inside the a
 ### ➤ **Horizontal Widget (no props)**
 
 ```tsx
-import { TrustBoxWidget } from "@mr-fougere/react-trustpilot";
+import { TrustBoxWidget } from "@mr-fougere/react-trustpilot-widgets";
 
 function App() {
   return <TrustBoxWidget.Horizontal />;
@@ -84,7 +84,7 @@ export default App;
 ### ➤ **Product Mini Widget (only required props)**
 
 ```tsx
-import { TrustBoxWidget } from "@mr-fougere/react-trustpilot";
+import { TrustBoxWidget } from "@mr-fougere/react-trustpilot-widgets";
 
 function App() {
   return <TrustBoxWidget.ProductMini sku="SKU_EXAMPLE" />;
@@ -96,7 +96,7 @@ export default App;
 ### ➤ **Review Collector Widget (resized)**
 
 ```tsx
-import { TrustBoxWidget } from "@mr-fougere/react-trustpilot";
+import { TrustBoxWidget } from "@mr-fougere/react-trustpilot-widgets";
 
 function App() {
   return (
@@ -114,7 +114,7 @@ export default App;
 ⚠️ If you filter reviews by rating, inform the customer.
 
 ```tsx
-import { TrustBoxWidget } from "@mr-fougere/react-trustpilot";
+import { TrustBoxWidget } from "@mr-fougere/react-trustpilot-widgets";
 
 function App() {
   return (
@@ -124,7 +124,7 @@ function App() {
       height="min"
       width="50%"
       stars={[1, 2, 3]}
-      reviewLanguage="es">
+      reviewLanguages={["es"]}>
       Loading...
     </TrustBoxWidget.DropDown>
   );
@@ -138,7 +138,7 @@ export default App;
 ⚠️ If you filter reviews by rating, inform the customer.
 
 ```tsx
-import { TrustBoxWidget } from "@mr-fougere/react-trustpilot";
+import { TrustBoxWidget } from "@mr-fougere/react-trustpilot-widgets";
 
 function App() {
   return (
@@ -146,7 +146,7 @@ function App() {
       locale="fr-FR"
       theme="dark"
       stars={[4, 5]}
-      reviewLanguage="fr"
+      reviewLanguages={["fr"]}
       starColor="blue"
       sku="SKU_EXAMPLE_2"
       fontFamily="Oxygen"
