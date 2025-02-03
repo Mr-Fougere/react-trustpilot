@@ -45,7 +45,7 @@ export const TrustpilotWidgetLayout = ({ children }: PropsWithChildren) => {
       widgetUrl="YOUR_WIDGET_URL"
       locale="fr-FR">
       {children}
-    </TrustpilotProvider>
+    </TrustpilotWidgetProvider>
   );
 };
 ```
