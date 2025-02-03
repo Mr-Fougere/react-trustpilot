@@ -42,7 +42,7 @@ export const TrustpilotWidgetLayout = ({ children }: PropsWithChildren) => {
   return (
     <TrustpilotWidgetProvider
       businessUnitId="YOUR_BUSINESSUNIT_ID"
-      widgetUrl="YOUR_WIDGET_URL"
+      websiteUrl="YOUR_WEBSITE_URL"
       locale="fr-FR">
       {children}
     </TrustpilotWidgetProvider>
